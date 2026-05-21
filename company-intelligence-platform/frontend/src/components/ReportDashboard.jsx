@@ -17,29 +17,36 @@ export default function ReportDashboard({ report, rawOutputs, sessionId }) {
   const [expandedRows, setExpandedRows] = useState({})
 
   useEffect(() => {
-    if (!parametersData && !paramsLoading && sessionId) {
-      setParamsLoading(true)
-      fetch(`/api/session/${sessionId}/parameters`)
-        .then(res => res.json())
-        .then(data => {
-          setParametersData(data)
-          // Expand all by default
-          if (data.domains) {
-            const initialExpanded = {}
-            Object.keys(data.domains).forEach(d => initialExpanded[d] = true)
-            setExpandedDomains(initialExpanded)
-            
-            // Set first domain as active tab
-            const domainNames = Object.keys(data.domains)
-            if (domainNames.length > 0) {
-              setActiveTab(domainNames[0])
-            }
+    if (!sessionId) return
+
+    setParametersData(null)
+    setExpandedDomains({})
+    setExpandedRows({})
+    setSearchQuery('')
+    setDifficultyFilter('All')
+    setStatusFilter('All')
+    setParamsLoading(true)
+
+    fetch(`/api/session/${sessionId}/parameters`)
+      .then(res => res.json())
+      .then(data => {
+        setParametersData(data)
+        // Expand all by default
+        if (data.domains) {
+          const initialExpanded = {}
+          Object.keys(data.domains).forEach(d => initialExpanded[d] = true)
+          setExpandedDomains(initialExpanded)
+          
+          // Set first domain as active tab
+          const domainNames = Object.keys(data.domains)
+          if (domainNames.length > 0) {
+            setActiveTab(domainNames[0])
           }
-        })
-        .catch(err => console.error("Failed to fetch parameters:", err))
-        .finally(() => setParamsLoading(false))
-    }
-  }, [sessionId, parametersData, paramsLoading])
+        }
+      })
+      .catch(err => console.error("Failed to fetch parameters:", err))
+      .finally(() => setParamsLoading(false))
+  }, [sessionId])
 
   if (!report) {
     return (
@@ -77,11 +84,24 @@ export default function ReportDashboard({ report, rawOutputs, sessionId }) {
     let realValue = p.value;
     
     // We only filter artificial backend placeholders, not real database values
-    const isPlaceholder = (val) => typeof val === 'string' && [
-      "Verified Domain Data", 
-      "In-depth Verified Metric", 
-      "High-Fidelity Reconciled Estimate"
-    ].includes(val);
+    const isPlaceholder = (val) => {
+      if (typeof val !== 'string') return false
+      const normalized = val.trim().toLowerCase()
+      const placeholders = [
+        "verified domain data",
+        "in-depth verified metric",
+        "high-fidelity reconciled estimate",
+        "data unavailable from verified sources",
+        "not available",
+        "n/a",
+        "unknown",
+        "none",
+        "not disclosed",
+        "pending",
+        "unable to locate"
+      ]
+      return placeholders.some(placeholder => normalized === placeholder || normalized.includes(placeholder))
+    }
 
     // If p.value is missing or a placeholder, attempt to rescue it from rawOutputs
     if (realValue === null || realValue === undefined || realValue === "" || isPlaceholder(realValue)) {

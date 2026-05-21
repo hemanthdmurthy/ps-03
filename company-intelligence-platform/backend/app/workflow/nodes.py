@@ -783,7 +783,7 @@ async def validation_node(state: ResearchState, config: RunnableConfig) -> Dict[
         passed = True
         msg = f"Valid information extracted for '{field}'."
 
-        if not val or val == "Unknown" or val == "Not Disclosed" or val == "None" or (isinstance(val, list) and len(val) == 0):
+        if not is_valid_value(val):
             passed = False
             msg = f"Missing critical information for: '{desc}'."
             failed_fields.append(field)

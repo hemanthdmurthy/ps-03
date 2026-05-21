@@ -216,10 +216,14 @@ async def get_session_parameters(session_id: str):
             return row
         allocated = row.get("allocated_parameters")
         if isinstance(allocated, dict):
-            merged = {**row, **allocated}
+            valid_allocated = {
+                k: v for k, v in allocated.items() if is_valid_value(v)
+            }
+            merged = {**row, **valid_allocated}
             if not merged.get("company_name") and merged.get("name"):
                 merged["company_name"] = merged["name"]
             return merged
+        # For non-dict allocated_parameters, just ensure company_name is set
         if not row.get("company_name") and row.get("name"):
             row["company_name"] = row["name"]
         return row
@@ -250,8 +254,9 @@ async def get_session_parameters(session_id: str):
                 raw = out.get("raw_json_output") if isinstance(out, dict) else None
                 if isinstance(raw, dict):
                     for k, v in raw.items():
-                        # Only merge recognized MASTER_PARAMETERS and only when row lacks a valid value
-                        if k in MASTER_PARAMETERS and not is_valid_value(first_row.get(k)):
+                        # Only merge recognized MASTER_PARAMETERS, only if incoming value is valid, 
+                        # and only when row lacks a valid value
+                        if k in MASTER_PARAMETERS and is_valid_value(v) and not is_valid_value(first_row.get(k)):
                             first_row[k] = v
     except Exception as e:
         logger.debug(f"Could not merge agent outputs for session {session_id}: {e}")

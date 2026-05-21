@@ -230,12 +230,19 @@ def is_valid_value(val: any) -> bool:
         return False
     if isinstance(val, str):
         val_clean = val.strip().lower()
-        if val_clean in [
-            "", "null", "none", "n/a", "unknown", "not disclosed", "pending", "undisclosed",
-            "none.", "unknown.", "not disclosed.", "none reported.", "na",
+        # Exact matches for short patterns to avoid substring false positives
+        invalid_exact = {
+            "",  "null", "none", "n/a", "na", "unknown", "not disclosed", "pending", "undisclosed",
+            "none.", "unknown.", "not disclosed.", "none reported.",
             "no general overview found.", "no mission details found.",
-            "verified domain data", "in-depth verified metric", "high-fidelity reconciled estimate"
-        ]:
+            "verified domain data", "in-depth verified metric", "high-fidelity reconciled estimate",
+            "not available", "unable to locate"
+        }
+        if val_clean in invalid_exact:
+            return False
+        # Prefix-based checks for longer patterns
+        invalid_prefixes = ["data unavailable", "data not available"]
+        if any(val_clean.startswith(prefix) for prefix in invalid_prefixes):
             return False
     if isinstance(val, (list, dict)) and len(val) == 0:
         return False

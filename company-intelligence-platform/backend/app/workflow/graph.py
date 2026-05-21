@@ -17,8 +17,15 @@ def validation_router(state: ResearchState) -> Literal["regeneration", "final_ou
     """
     Evaluates whether to enter the regeneration cycle or proceed to finalization.
     Forces proceeding to final_output if max attempts have been exceeded.
+    
+    Key Fix: **Regeneration is triggered only when BOTH conditions are true:**
+    1. validation_passed is False (confidence < threshold OR failed_fields exist)
+    2. regeneration_attempts < max_attempts (still have retries left)
+    
+    If validation_passed is True, proceed directly to final_output regardless of confidence score.
     """
-    if state["validation_passed"]:
+    if state.get("validation_passed", False):
+        print(f"[Router] Validation passed. Proceeding to final_output.")
         return "final_output"
 
     attempts = state.get("regeneration_attempts", 0)

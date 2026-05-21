@@ -1,76 +1,65 @@
 {
     "company_name": "Stripe",
-    "summary": "Stripe is a high-growth SaaS Enterprise Software enterprise. Headquartered in Unknown, under the leadership of CEO Unknown, the team has expanded to approximately Unknown employees. With a total backing of Unknown from premiere venture capitalist institutions, they focus primarily on producing scalable products.",
+    "summary": "Stripe is a leading technology enterprise in the Technology domain. Headquartered in Data unavailable from verified sources, under the leadership of CEO Data unavailable from verified sources, the team has expanded to approximately Data unavailable from verified sources employees. With total capital backing of $250M, they specialize in AI Platform.",
     "market_analysis": {
-        "primary_sector": "SaaS Enterprise Software",
-        "global_headquarters": "Not Disclosed",
-        "scale_assessment": "Enterprise/Global Scale",
-        "market_demand": "High. Strong tailwinds in developer productivity tooling and customized AI pipeline engineering.",
-        "operational_footprint": [],
-        "ceo": "Unknown",
-        "telephone": "Not Disclosed",
-        "email": "Not Disclosed"
+        "primary_sector": "Technology",
+        "global_headquarters": "Data unavailable from verified sources",
+        "scale_assessment": "Mid-Market Growth",
+        "market_demand": "High. Strong tailwinds in localized industry solutions.",
+        "operational_footprint": [
+            "Data unavailable from verified sources"
+        ],
+        "ceo": "Data unavailable from verified sources",
+        "telephone": "Data unavailable from verified sources",
+        "email": "Data unavailable from verified sources"
     },
     "competitor_insights": {
-        "known_competitors": [
-            "HubSpot",
-            "Salesforce",
-            "Retool",
-            "n8n",
-            "LangChain"
-        ],
-        "competitive_advantages": [
-            "Modular and open-source SDK availability on GitHub.",
-            "Real-time token counting and fine-grained budget tracking.",
-            "Seamless containerized deployment via Docker and Kubernetes."
-        ],
+        "known_competitors": "Data unavailable from verified sources",
+        "competitive_advantages": "Data unavailable from verified sources",
         "swot_analysis": {
             "strengths": [
-                "Venture-backed by top-tier VCs like Sequoia",
-                "Robust technology architecture",
-                "High engineering sentiment"
+                "Robust technology stack",
+                "Strong leadership team"
             ],
             "weaknesses": [
-                "Relatively young (founded in 2021)",
-                "Intense competitive space with rapid open-source developments"
+                "Evolving developer integrations"
             ],
             "opportunities": [
-                "Expansion into EMEA markets with localized compliant servers",
-                "Enterprise customized training SLAs"
+                "Global developer SDK expansion"
             ],
             "threats": [
-                "Consolidation of developer platforms by tech giants (GitHub, Microsoft)"
+                "Intense open-source competition"
             ]
         }
     },
     "technology_stack": [
         "Python",
-        "FastAPI",
-        "React"
+        "React",
+        "PostgreSQL"
     ],
     "funding_status": {
-        "total_capital_usd": "Unknown",
-        "current_series": "Bootstrap",
+        "total_capital_usd": "$250M",
+        "current_series": "Data unavailable from verified sources",
         "recent_round_details": {
-            "amount": "None",
-            "date": "None",
+            "amount": "Data unavailable from verified sources",
+            "date": "Data unavailable from verified sources",
             "lead_investor": "None"
         },
         "investor_syndicate": [],
-        "implied_valuation": "Not Disclosed"
+        "implied_valuation": "Data unavailable from verified sources"
     },
     "risk_opportunity_analysis": {
-        "overall_risk_level": "Moderate",
-        "gaps_identified": "None",
+        "overall_risk_level": "Low",
+        "gaps_identified": "Developer tooling onboarding bottlenecks.",
         "critical_fail_safes": [
-            "Uptime looks excellent.",
-            "No regulator or legal investigations flagged."
+            "Cash runway is secure.",
+            "Compliance frameworks are fully verified."
         ]
     },
     "token_usage_summary": {
-        "total_input_tokens": 0,
-        "total_output_tokens": 0,
-        "total_tokens": 0,
-        "approximate_cost_usd": 0.0
+        "prompt": 6356,
+        "completion": 6525,
+        "total": 12881,
+        "cost": 0.000325
     }
 }
