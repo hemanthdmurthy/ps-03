@@ -57,9 +57,9 @@
         ]
     },
     "token_usage_summary": {
-        "prompt": 4524,
-        "completion": 4560,
-        "total": 9084,
-        "cost": 0.000313
+        "prompt": 9125,
+        "completion": 10478,
+        "total": 19603,
+        "cost": 0.000327
     }
 }

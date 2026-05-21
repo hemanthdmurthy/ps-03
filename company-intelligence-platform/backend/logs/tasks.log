@@ -1870,3 +1870,275 @@ backend. The Celery application must be restarted.
 2026-05-21 08:03:55.614 | INFO     | logging:callHandlers:1737 [TASKS] - [Redis Shutdown] Sync connection pool disposed.
 2026-05-21 08:03:56.058 | WARNING  | logging:callHandlers:1737 [TASKS] - [-] [Redis Timeout] Connection timed out: check network routes. Error: Timeout connecting to server
 2026-05-21 08:03:56.059 | INFO     | logging:callHandlers:1737 [TASKS] - [Redis Retry] Waiting 0.83s before next connection attempt...
+2026-05-21 08:03:56.890 | INFO     | logging:callHandlers:1737 [TASKS] - [Redis Connect] Attempt 2/6 to ping Redis at localhost:6379...
+2026-05-21 08:04:01.735 | INFO     | logging:callHandlers:1737 [TASKS] - [Redis Startup] Target Connection: redis://localhost:6379/0 (Host: localhost, Port: 6379)
+2026-05-21 08:04:01.737 | INFO     | logging:callHandlers:1737 [TASKS] - [Redis Connect] Attempt 1/6 to ping Redis at localhost:6379...
+2026-05-21 08:04:02.916 | WARNING  | logging:callHandlers:1737 [TASKS] - [-] [Redis Timeout] Connection timed out: check network routes. Error: Timeout connecting to server
+2026-05-21 08:04:02.917 | INFO     | logging:callHandlers:1737 [TASKS] - [Redis Retry] Waiting 1.94s before next connection attempt...
+2026-05-21 08:04:04.866 | INFO     | logging:callHandlers:1737 [TASKS] - [Redis Connect] Attempt 3/6 to ping Redis at localhost:6379...
+2026-05-21 08:04:07.763 | WARNING  | logging:callHandlers:1737 [TASKS] - [-] [Redis Timeout] Connection timed out: check network routes. Error: Timeout connecting to server
+2026-05-21 08:04:07.764 | INFO     | logging:callHandlers:1737 [TASKS] - [Redis Retry] Waiting 0.74s before next connection attempt...
+2026-05-21 08:04:08.511 | INFO     | logging:callHandlers:1737 [TASKS] - [Redis Connect] Attempt 2/6 to ping Redis at localhost:6379...
+2026-05-21 08:04:10.893 | WARNING  | logging:callHandlers:1737 [TASKS] - [-] [Redis Timeout] Connection timed out: check network routes. Error: Timeout connecting to server
+2026-05-21 08:04:10.895 | INFO     | logging:callHandlers:1737 [TASKS] - [Redis Retry] Waiting 3.43s before next connection attempt...
+2026-05-21 08:04:14.340 | INFO     | logging:callHandlers:1737 [TASKS] - [Redis Connect] Attempt 4/6 to ping Redis at localhost:6379...
+2026-05-21 08:04:14.539 | WARNING  | logging:callHandlers:1737 [TASKS] - [-] [Redis Timeout] Connection timed out: check network routes. Error: Timeout connecting to server
+2026-05-21 08:04:14.540 | INFO     | logging:callHandlers:1737 [TASKS] - [Redis Retry] Waiting 1.15s before next connection attempt...
+2026-05-21 08:04:15.705 | INFO     | logging:callHandlers:1737 [TASKS] - [Redis Connect] Attempt 3/6 to ping Redis at localhost:6379...
+2026-05-21 08:04:20.367 | WARNING  | logging:callHandlers:1737 [TASKS] - [-] [Redis Timeout] Connection timed out: check network routes. Error: Timeout connecting to server
+2026-05-21 08:04:20.368 | INFO     | logging:callHandlers:1737 [TASKS] - [Redis Retry] Waiting 6.63s before next connection attempt...
+2026-05-21 08:04:21.731 | WARNING  | logging:callHandlers:1737 [TASKS] - [-] [Redis Timeout] Connection timed out: check network routes. Error: Timeout connecting to server
+2026-05-21 08:04:21.732 | INFO     | logging:callHandlers:1737 [TASKS] - [Redis Retry] Waiting 3.1s before next connection attempt...
+2026-05-21 08:04:24.846 | INFO     | logging:callHandlers:1737 [TASKS] - [Redis Connect] Attempt 4/6 to ping Redis at localhost:6379...
+2026-05-21 08:04:27.010 | INFO     | logging:callHandlers:1737 [TASKS] - [Redis Connect] Attempt 5/6 to ping Redis at localhost:6379...
+2026-05-21 08:04:30.874 | WARNING  | logging:callHandlers:1737 [TASKS] - [-] [Redis Timeout] Connection timed out: check network routes. Error: Timeout connecting to server
+2026-05-21 08:04:30.875 | INFO     | logging:callHandlers:1737 [TASKS] - [Redis Retry] Waiting 6.87s before next connection attempt...
+2026-05-21 08:04:33.037 | WARNING  | logging:callHandlers:1737 [TASKS] - [-] [Redis Timeout] Connection timed out: check network routes. Error: Timeout connecting to server
+2026-05-21 08:04:33.038 | INFO     | logging:callHandlers:1737 [TASKS] - [Redis Retry] Waiting 9.47s before next connection attempt...
+2026-05-21 08:04:37.760 | INFO     | logging:callHandlers:1737 [TASKS] - [Redis Connect] Attempt 5/6 to ping Redis at localhost:6379...
+2026-05-21 08:04:42.512 | INFO     | logging:callHandlers:1737 [TASKS] - [Redis Connect] Attempt 6/6 to ping Redis at localhost:6379...
+2026-05-21 08:04:43.783 | WARNING  | logging:callHandlers:1737 [TASKS] - [-] [Redis Timeout] Connection timed out: check network routes. Error: Timeout connecting to server
+2026-05-21 08:04:43.784 | INFO     | logging:callHandlers:1737 [TASKS] - [Redis Retry] Waiting 12.37s before next connection attempt...
+2026-05-21 08:04:48.539 | WARNING  | logging:callHandlers:1737 [TASKS] - [-] [Redis Timeout] Connection timed out: check network routes. Error: Timeout connecting to server
+2026-05-21 08:04:48.540 | WARNING  | logging:callHandlers:1737 [TASKS] - [-] [Redis Outage] Max startup connection attempts exceeded. Current environment: development
+2026-05-21 08:04:48.542 | INFO     | logging:callHandlers:1737 [TASKS] - [+] [Redis Fallback] In-memory FakeRedis successfully active for both sync/async operations (shared server — pub/sub bridged).
+2026-05-21 08:04:48.550 | INFO     | logging:callHandlers:1737 [TASKS] - [Redis PubSub] Initialized successfully. Instance: instance_1831295225872_1779330768, Redis: redis://localhost:6379/0
+2026-05-21 08:04:48.552 | INFO     | logging:callHandlers:1737 [TASKS] - [Redis PubSub] Subscribed to channel: 'company_intel:notifications'
+2026-05-21 08:04:48.554 | INFO     | logging:callHandlers:1737 [TASKS] - [Redis PubSub] Subscribed to channel: 'company_intel:dashboard_updates'
+2026-05-21 08:04:48.555 | INFO     | logging:callHandlers:1737 [TASKS] - [Redis PubSub] Subscribed to channel: 'company_intel:activity_stream'
+2026-05-21 08:04:48.557 | INFO     | logging:callHandlers:1737 [TASKS] - [Redis PubSub] Subscribed to channel: 'company_intel:analytics_live'
+2026-05-21 08:04:48.558 | INFO     | logging:callHandlers:1737 [TASKS] - [Redis PubSub] Subscribed to channel: 'company_intel:system_broadcast'
+2026-05-21 08:04:48.560 | INFO     | logging:callHandlers:1737 [TASKS] - [Redis PubSub] Background listener task started.
+2026-05-21 08:04:56.164 | INFO     | logging:callHandlers:1737 [TASKS] - [Redis Connect] Attempt 6/6 to ping Redis at localhost:6379...
+2026-05-21 08:05:02.176 | WARNING  | logging:callHandlers:1737 [TASKS] - [-] [Redis Timeout] Connection timed out: check network routes. Error: Timeout connecting to server
+2026-05-21 08:05:02.177 | WARNING  | logging:callHandlers:1737 [TASKS] - [-] [Redis Outage] Max startup connection attempts exceeded. Current environment: development
+2026-05-21 08:05:02.278 | INFO     | logging:callHandlers:1737 [TASKS] - [+] [Redis Fallback] In-memory FakeRedis successfully active for both sync/async operations (shared server — pub/sub bridged).
+2026-05-21 08:05:02.279 | INFO     | logging:callHandlers:1737 [TASKS] - 🧹 [Redis Cleanup] Starting orchestration lock validation and auto-healing...
+2026-05-21 08:05:02.285 | INFO     | logging:callHandlers:1737 [TASKS] - ✨ [Redis Cleanup Completed] Scanned: 0, Cleared Malformed: 0, Cleared Orphaned: 0, Cleared Stale: 0
+2026-05-21 08:05:02.292 | INFO     | logging:callHandlers:1737 [TASKS] - [Redis Startup] Target Connection: redis://localhost:6379/0 (Host: localhost, Port: 6379)
+2026-05-21 08:05:02.293 | INFO     | logging:callHandlers:1737 [TASKS] - [Redis Connect] Attempt 1/6 to ping Redis at localhost:6379...
+2026-05-21 08:05:08.318 | WARNING  | logging:callHandlers:1737 [TASKS] - [-] [Redis Timeout] Connection timed out: check network routes. Error: Timeout connecting to server
+2026-05-21 08:05:08.319 | INFO     | logging:callHandlers:1737 [TASKS] - [Redis Retry] Waiting 0.74s before next connection attempt...
+2026-05-21 08:05:09.068 | INFO     | logging:callHandlers:1737 [TASKS] - [Redis Connect] Attempt 2/6 to ping Redis at localhost:6379...
+2026-05-21 08:05:15.095 | WARNING  | logging:callHandlers:1737 [TASKS] - [-] [Redis Timeout] Connection timed out: check network routes. Error: Timeout connecting to server
+2026-05-21 08:05:15.095 | INFO     | logging:callHandlers:1737 [TASKS] - [Redis Retry] Waiting 1.81s before next connection attempt...
+2026-05-21 08:05:16.909 | INFO     | logging:callHandlers:1737 [TASKS] - [Redis Connect] Attempt 3/6 to ping Redis at localhost:6379...
+2026-05-21 08:05:22.937 | WARNING  | logging:callHandlers:1737 [TASKS] - [-] [Redis Timeout] Connection timed out: check network routes. Error: Timeout connecting to server
+2026-05-21 08:05:22.938 | INFO     | logging:callHandlers:1737 [TASKS] - [Redis Retry] Waiting 3.43s before next connection attempt...
+2026-05-21 08:05:26.369 | INFO     | logging:callHandlers:1737 [TASKS] - [Redis Connect] Attempt 4/6 to ping Redis at localhost:6379...
+2026-05-21 08:05:32.394 | WARNING  | logging:callHandlers:1737 [TASKS] - [-] [Redis Timeout] Connection timed out: check network routes. Error: Timeout connecting to server
+2026-05-21 08:05:32.395 | INFO     | logging:callHandlers:1737 [TASKS] - [Redis Retry] Waiting 4.43s before next connection attempt...
+2026-05-21 08:05:36.826 | INFO     | logging:callHandlers:1737 [TASKS] - [Redis Connect] Attempt 5/6 to ping Redis at localhost:6379...
+2026-05-21 08:05:42.850 | WARNING  | logging:callHandlers:1737 [TASKS] - [-] [Redis Timeout] Connection timed out: check network routes. Error: Timeout connecting to server
+2026-05-21 08:05:42.850 | INFO     | logging:callHandlers:1737 [TASKS] - [Redis Retry] Waiting 13.11s before next connection attempt...
+2026-05-21 08:05:55.970 | INFO     | logging:callHandlers:1737 [TASKS] - [Redis Connect] Attempt 6/6 to ping Redis at localhost:6379...
+2026-05-21 08:06:01.998 | WARNING  | logging:callHandlers:1737 [TASKS] - [-] [Redis Timeout] Connection timed out: check network routes. Error: Timeout connecting to server
+2026-05-21 08:06:01.999 | WARNING  | logging:callHandlers:1737 [TASKS] - [-] [Redis Outage] Max startup connection attempts exceeded. Current environment: development
+2026-05-21 08:06:02.001 | INFO     | logging:callHandlers:1737 [TASKS] - [+] [Redis Fallback] In-memory FakeRedis successfully active for both sync/async operations (shared server — pub/sub bridged).
+2026-05-21 08:06:02.006 | INFO     | logging:callHandlers:1737 [TASKS] - [Redis PubSub] Initialized successfully. Instance: instance_2134752448528_1779330841, Redis: redis://localhost:6379/0
+2026-05-21 08:06:02.007 | INFO     | logging:callHandlers:1737 [TASKS] - [Redis PubSub] Subscribed to channel: 'company_intel:notifications'
+2026-05-21 08:06:02.009 | INFO     | logging:callHandlers:1737 [TASKS] - [Redis PubSub] Subscribed to channel: 'company_intel:dashboard_updates'
+2026-05-21 08:06:02.009 | INFO     | logging:callHandlers:1737 [TASKS] - [Redis PubSub] Subscribed to channel: 'company_intel:activity_stream'
+2026-05-21 08:06:02.010 | INFO     | logging:callHandlers:1737 [TASKS] - [Redis PubSub] Subscribed to channel: 'company_intel:analytics_live'
+2026-05-21 08:06:02.011 | INFO     | logging:callHandlers:1737 [TASKS] - [Redis PubSub] Subscribed to channel: 'company_intel:system_broadcast'
+2026-05-21 08:06:02.012 | INFO     | logging:callHandlers:1737 [TASKS] - [Redis PubSub] Background listener task started.
+2026-05-21 08:41:32.330 | INFO     | logging:callHandlers:1737 [TASKS] - 🔑 [Redis Lock] Lock acquired for 'orchestration:apple:lock' (ID: 1b8a998b-fec3-4568-b6dc-9f0dd7a798b3, TTL: 1800s)
+2026-05-21 08:41:32.833 | INFO     | logging:callHandlers:1737 [TASKS] - Starting LangGraph workflow in background for session: 1b8a998b-fec3-4568-b6dc-9f0dd7a798b3
+2026-05-21 08:41:34.429 | INFO     | logging:callHandlers:1737 [TASKS] - [Graph Stream Update] Completed Node: 'input'
+2026-05-21 08:41:34.434 | INFO     | logging:callHandlers:1737 [TASKS] - [SSE Publish Local] Pushing event 'input_normalized' to session 1b8a998b-fec3-4568-b6dc-9f0dd7a798b3
+2026-05-21 08:41:34.438 | INFO     | logging:callHandlers:1737 [TASKS] - [SSE Publish Redis] Published event 'input_normalized' to channel company_intel:sse:1b8a998b-fec3-4568-b6dc-9f0dd7a798b3
+2026-05-21 08:41:44.121 | INFO     | logging:callHandlers:1737 [TASKS] - [SSE Publish Local] Pushing event 'agent_status_updated' to session 1b8a998b-fec3-4568-b6dc-9f0dd7a798b3
+2026-05-21 08:41:44.123 | INFO     | logging:callHandlers:1737 [TASKS] - [SSE Publish Redis] Published event 'agent_status_updated' to channel company_intel:sse:1b8a998b-fec3-4568-b6dc-9f0dd7a798b3
+2026-05-21 08:43:09.336 | INFO     | logging:callHandlers:1737 [TASKS] - [SSE Publish Local] Pushing event 'agent_status_updated' to session 1b8a998b-fec3-4568-b6dc-9f0dd7a798b3
+2026-05-21 08:43:09.340 | INFO     | logging:callHandlers:1737 [TASKS] - [SSE Publish Redis] Published event 'agent_status_updated' to channel company_intel:sse:1b8a998b-fec3-4568-b6dc-9f0dd7a798b3
+2026-05-21 08:43:09.351 | INFO     | logging:callHandlers:1737 [TASKS] - [SSE Publish Local] Pushing event 'agent_status_updated' to session 1b8a998b-fec3-4568-b6dc-9f0dd7a798b3
+2026-05-21 08:43:09.354 | INFO     | logging:callHandlers:1737 [TASKS] - [SSE Publish Redis] Published event 'agent_status_updated' to channel company_intel:sse:1b8a998b-fec3-4568-b6dc-9f0dd7a798b3
+2026-05-21 08:43:11.234 | INFO     | logging:callHandlers:1737 [TASKS] - [SSE Publish Local] Pushing event 'agent_status_updated' to session 1b8a998b-fec3-4568-b6dc-9f0dd7a798b3
+2026-05-21 08:43:11.235 | INFO     | logging:callHandlers:1737 [TASKS] - [SSE Publish Redis] Published event 'agent_status_updated' to channel company_intel:sse:1b8a998b-fec3-4568-b6dc-9f0dd7a798b3
+2026-05-21 08:43:12.013 | INFO     | logging:callHandlers:1737 [TASKS] - [SSE Publish Local] Pushing event 'agent_status_updated' to session 1b8a998b-fec3-4568-b6dc-9f0dd7a798b3
+2026-05-21 08:43:12.014 | INFO     | logging:callHandlers:1737 [TASKS] - [SSE Publish Redis] Published event 'agent_status_updated' to channel company_intel:sse:1b8a998b-fec3-4568-b6dc-9f0dd7a798b3
+2026-05-21 08:43:12.035 | INFO     | logging:callHandlers:1737 [TASKS] - [SSE Publish Local] Pushing event 'agent_status_updated' to session 1b8a998b-fec3-4568-b6dc-9f0dd7a798b3
+2026-05-21 08:43:12.036 | INFO     | logging:callHandlers:1737 [TASKS] - [SSE Publish Redis] Published event 'agent_status_updated' to channel company_intel:sse:1b8a998b-fec3-4568-b6dc-9f0dd7a798b3
+2026-05-21 08:43:18.420 | INFO     | logging:callHandlers:1737 [TASKS] - [SSE Publish Local] Pushing event 'agent_status_updated' to session 1b8a998b-fec3-4568-b6dc-9f0dd7a798b3
+2026-05-21 08:43:18.421 | INFO     | logging:callHandlers:1737 [TASKS] - [SSE Publish Redis] Published event 'agent_status_updated' to channel company_intel:sse:1b8a998b-fec3-4568-b6dc-9f0dd7a798b3
+2026-05-21 08:43:18.435 | INFO     | logging:callHandlers:1737 [TASKS] - [Graph Stream Update] Completed Node: 'research_agents'
+2026-05-21 08:43:18.438 | INFO     | logging:callHandlers:1737 [TASKS] - [SSE Publish Local] Pushing event 'research_completed' to session 1b8a998b-fec3-4568-b6dc-9f0dd7a798b3
+2026-05-21 08:43:18.439 | INFO     | logging:callHandlers:1737 [TASKS] - [SSE Publish Redis] Published event 'research_completed' to channel company_intel:sse:1b8a998b-fec3-4568-b6dc-9f0dd7a798b3
+2026-05-21 08:43:18.462 | INFO     | logging:callHandlers:1737 [TASKS] - [Graph Stream Update] Completed Node: 'consolidation'
+2026-05-21 08:43:18.467 | INFO     | logging:callHandlers:1737 [TASKS] - [SSE Publish Local] Pushing event 'consolidation_completed' to session 1b8a998b-fec3-4568-b6dc-9f0dd7a798b3
+2026-05-21 08:43:18.468 | INFO     | logging:callHandlers:1737 [TASKS] - [SSE Publish Redis] Published event 'consolidation_completed' to channel company_intel:sse:1b8a998b-fec3-4568-b6dc-9f0dd7a798b3
+2026-05-21 08:43:18.518 | INFO     | logging:callHandlers:1737 [TASKS] - [Graph Stream Update] Completed Node: 'validation'
+2026-05-21 08:43:18.521 | INFO     | logging:callHandlers:1737 [TASKS] - [SSE Publish Local] Pushing event 'validation_completed' to session 1b8a998b-fec3-4568-b6dc-9f0dd7a798b3
+2026-05-21 08:43:18.524 | INFO     | logging:callHandlers:1737 [TASKS] - [SSE Publish Redis] Published event 'validation_completed' to channel company_intel:sse:1b8a998b-fec3-4568-b6dc-9f0dd7a798b3
+2026-05-21 08:43:18.551 | INFO     | logging:callHandlers:1737 [TASKS] - [Graph Stream Update] Completed Node: 'regeneration'
+2026-05-21 08:43:18.556 | INFO     | logging:callHandlers:1737 [TASKS] - [SSE Publish Local] Pushing event 'regeneration_triggered' to session 1b8a998b-fec3-4568-b6dc-9f0dd7a798b3
+2026-05-21 08:43:18.559 | INFO     | logging:callHandlers:1737 [TASKS] - [SSE Publish Redis] Published event 'regeneration_triggered' to channel company_intel:sse:1b8a998b-fec3-4568-b6dc-9f0dd7a798b3
+2026-05-21 08:43:24.374 | INFO     | logging:callHandlers:1737 [TASKS] - [SSE Publish Local] Pushing event 'agent_status_updated' to session 1b8a998b-fec3-4568-b6dc-9f0dd7a798b3
+2026-05-21 08:43:24.375 | INFO     | logging:callHandlers:1737 [TASKS] - [SSE Publish Redis] Published event 'agent_status_updated' to channel company_intel:sse:1b8a998b-fec3-4568-b6dc-9f0dd7a798b3
+2026-05-21 08:44:00.715 | INFO     | logging:callHandlers:1737 [TASKS] - [SSE Publish Local] Pushing event 'agent_status_updated' to session 1b8a998b-fec3-4568-b6dc-9f0dd7a798b3
+2026-05-21 08:44:00.716 | INFO     | logging:callHandlers:1737 [TASKS] - [SSE Publish Redis] Published event 'agent_status_updated' to channel company_intel:sse:1b8a998b-fec3-4568-b6dc-9f0dd7a798b3
+2026-05-21 08:44:00.946 | INFO     | logging:callHandlers:1737 [TASKS] - [SSE Publish Local] Pushing event 'agent_status_updated' to session 1b8a998b-fec3-4568-b6dc-9f0dd7a798b3
+2026-05-21 08:44:00.947 | INFO     | logging:callHandlers:1737 [TASKS] - [SSE Publish Redis] Published event 'agent_status_updated' to channel company_intel:sse:1b8a998b-fec3-4568-b6dc-9f0dd7a798b3
+2026-05-21 08:44:01.692 | INFO     | logging:callHandlers:1737 [TASKS] - [SSE Publish Local] Pushing event 'agent_status_updated' to session 1b8a998b-fec3-4568-b6dc-9f0dd7a798b3
+2026-05-21 08:44:01.692 | INFO     | logging:callHandlers:1737 [TASKS] - [SSE Publish Redis] Published event 'agent_status_updated' to channel company_intel:sse:1b8a998b-fec3-4568-b6dc-9f0dd7a798b3
+2026-05-21 08:44:01.703 | INFO     | logging:callHandlers:1737 [TASKS] - [Graph Stream Update] Completed Node: 'research_agents'
+2026-05-21 08:44:01.705 | INFO     | logging:callHandlers:1737 [TASKS] - [SSE Publish Local] Pushing event 'research_completed' to session 1b8a998b-fec3-4568-b6dc-9f0dd7a798b3
+2026-05-21 08:44:01.705 | INFO     | logging:callHandlers:1737 [TASKS] - [SSE Publish Redis] Published event 'research_completed' to channel company_intel:sse:1b8a998b-fec3-4568-b6dc-9f0dd7a798b3
+2026-05-21 08:44:01.721 | INFO     | logging:callHandlers:1737 [TASKS] - [Graph Stream Update] Completed Node: 'consolidation'
+2026-05-21 08:44:01.724 | INFO     | logging:callHandlers:1737 [TASKS] - [SSE Publish Local] Pushing event 'consolidation_completed' to session 1b8a998b-fec3-4568-b6dc-9f0dd7a798b3
+2026-05-21 08:44:01.725 | INFO     | logging:callHandlers:1737 [TASKS] - [SSE Publish Redis] Published event 'consolidation_completed' to channel company_intel:sse:1b8a998b-fec3-4568-b6dc-9f0dd7a798b3
+2026-05-21 08:44:01.753 | INFO     | logging:callHandlers:1737 [TASKS] - [Graph Stream Update] Completed Node: 'validation'
+2026-05-21 08:44:01.754 | INFO     | logging:callHandlers:1737 [TASKS] - [SSE Publish Local] Pushing event 'validation_completed' to session 1b8a998b-fec3-4568-b6dc-9f0dd7a798b3
+2026-05-21 08:44:01.755 | INFO     | logging:callHandlers:1737 [TASKS] - [SSE Publish Redis] Published event 'validation_completed' to channel company_intel:sse:1b8a998b-fec3-4568-b6dc-9f0dd7a798b3
+2026-05-21 08:44:01.774 | INFO     | logging:callHandlers:1737 [TASKS] - [Graph Stream Update] Completed Node: 'regeneration'
+2026-05-21 08:44:01.776 | INFO     | logging:callHandlers:1737 [TASKS] - [SSE Publish Local] Pushing event 'regeneration_triggered' to session 1b8a998b-fec3-4568-b6dc-9f0dd7a798b3
+2026-05-21 08:44:01.778 | INFO     | logging:callHandlers:1737 [TASKS] - [SSE Publish Redis] Published event 'regeneration_triggered' to channel company_intel:sse:1b8a998b-fec3-4568-b6dc-9f0dd7a798b3
+2026-05-21 08:44:06.344 | INFO     | logging:callHandlers:1737 [TASKS] - [SSE Publish Local] Pushing event 'agent_status_updated' to session 1b8a998b-fec3-4568-b6dc-9f0dd7a798b3
+2026-05-21 08:44:06.345 | INFO     | logging:callHandlers:1737 [TASKS] - [SSE Publish Redis] Published event 'agent_status_updated' to channel company_intel:sse:1b8a998b-fec3-4568-b6dc-9f0dd7a798b3
+2026-05-21 08:44:42.070 | INFO     | logging:callHandlers:1737 [TASKS] - [SSE Publish Local] Pushing event 'agent_status_updated' to session 1b8a998b-fec3-4568-b6dc-9f0dd7a798b3
+2026-05-21 08:44:42.071 | INFO     | logging:callHandlers:1737 [TASKS] - [SSE Publish Redis] Published event 'agent_status_updated' to channel company_intel:sse:1b8a998b-fec3-4568-b6dc-9f0dd7a798b3
+2026-05-21 08:44:42.415 | INFO     | logging:callHandlers:1737 [TASKS] - [SSE Publish Local] Pushing event 'agent_status_updated' to session 1b8a998b-fec3-4568-b6dc-9f0dd7a798b3
+2026-05-21 08:44:42.415 | INFO     | logging:callHandlers:1737 [TASKS] - [SSE Publish Redis] Published event 'agent_status_updated' to channel company_intel:sse:1b8a998b-fec3-4568-b6dc-9f0dd7a798b3
+2026-05-21 08:44:44.162 | INFO     | logging:callHandlers:1737 [TASKS] - [SSE Publish Local] Pushing event 'agent_status_updated' to session 1b8a998b-fec3-4568-b6dc-9f0dd7a798b3
+2026-05-21 08:44:44.163 | INFO     | logging:callHandlers:1737 [TASKS] - [SSE Publish Redis] Published event 'agent_status_updated' to channel company_intel:sse:1b8a998b-fec3-4568-b6dc-9f0dd7a798b3
+2026-05-21 08:44:44.178 | INFO     | logging:callHandlers:1737 [TASKS] - [Graph Stream Update] Completed Node: 'research_agents'
+2026-05-21 08:44:44.181 | INFO     | logging:callHandlers:1737 [TASKS] - [SSE Publish Local] Pushing event 'research_completed' to session 1b8a998b-fec3-4568-b6dc-9f0dd7a798b3
+2026-05-21 08:44:44.182 | INFO     | logging:callHandlers:1737 [TASKS] - [SSE Publish Redis] Published event 'research_completed' to channel company_intel:sse:1b8a998b-fec3-4568-b6dc-9f0dd7a798b3
+2026-05-21 08:44:44.204 | INFO     | logging:callHandlers:1737 [TASKS] - [Graph Stream Update] Completed Node: 'consolidation'
+2026-05-21 08:44:44.208 | INFO     | logging:callHandlers:1737 [TASKS] - [SSE Publish Local] Pushing event 'consolidation_completed' to session 1b8a998b-fec3-4568-b6dc-9f0dd7a798b3
+2026-05-21 08:44:44.210 | INFO     | logging:callHandlers:1737 [TASKS] - [SSE Publish Redis] Published event 'consolidation_completed' to channel company_intel:sse:1b8a998b-fec3-4568-b6dc-9f0dd7a798b3
+2026-05-21 08:44:44.247 | INFO     | logging:callHandlers:1737 [TASKS] - [Graph Stream Update] Completed Node: 'validation'
+2026-05-21 08:44:44.249 | INFO     | logging:callHandlers:1737 [TASKS] - [SSE Publish Local] Pushing event 'validation_completed' to session 1b8a998b-fec3-4568-b6dc-9f0dd7a798b3
+2026-05-21 08:44:44.251 | INFO     | logging:callHandlers:1737 [TASKS] - [SSE Publish Redis] Published event 'validation_completed' to channel company_intel:sse:1b8a998b-fec3-4568-b6dc-9f0dd7a798b3
+2026-05-21 08:44:44.274 | INFO     | logging:callHandlers:1737 [TASKS] - [Graph Stream Update] Completed Node: 'regeneration'
+2026-05-21 08:44:44.277 | INFO     | logging:callHandlers:1737 [TASKS] - [SSE Publish Local] Pushing event 'regeneration_triggered' to session 1b8a998b-fec3-4568-b6dc-9f0dd7a798b3
+2026-05-21 08:44:44.278 | INFO     | logging:callHandlers:1737 [TASKS] - [SSE Publish Redis] Published event 'regeneration_triggered' to channel company_intel:sse:1b8a998b-fec3-4568-b6dc-9f0dd7a798b3
+2026-05-21 08:44:48.272 | INFO     | logging:callHandlers:1737 [TASKS] - [SSE Publish Local] Pushing event 'agent_status_updated' to session 1b8a998b-fec3-4568-b6dc-9f0dd7a798b3
+2026-05-21 08:44:48.273 | INFO     | logging:callHandlers:1737 [TASKS] - [SSE Publish Redis] Published event 'agent_status_updated' to channel company_intel:sse:1b8a998b-fec3-4568-b6dc-9f0dd7a798b3
+2026-05-21 08:45:24.171 | INFO     | logging:callHandlers:1737 [TASKS] - [SSE Publish Local] Pushing event 'agent_status_updated' to session 1b8a998b-fec3-4568-b6dc-9f0dd7a798b3
+2026-05-21 08:45:24.172 | INFO     | logging:callHandlers:1737 [TASKS] - [SSE Publish Redis] Published event 'agent_status_updated' to channel company_intel:sse:1b8a998b-fec3-4568-b6dc-9f0dd7a798b3
+2026-05-21 08:45:25.027 | INFO     | logging:callHandlers:1737 [TASKS] - [SSE Publish Local] Pushing event 'agent_status_updated' to session 1b8a998b-fec3-4568-b6dc-9f0dd7a798b3
+2026-05-21 08:45:25.028 | INFO     | logging:callHandlers:1737 [TASKS] - [SSE Publish Redis] Published event 'agent_status_updated' to channel company_intel:sse:1b8a998b-fec3-4568-b6dc-9f0dd7a798b3
+2026-05-21 08:45:26.243 | INFO     | logging:callHandlers:1737 [TASKS] - [SSE Publish Local] Pushing event 'agent_status_updated' to session 1b8a998b-fec3-4568-b6dc-9f0dd7a798b3
+2026-05-21 08:45:26.244 | INFO     | logging:callHandlers:1737 [TASKS] - [SSE Publish Redis] Published event 'agent_status_updated' to channel company_intel:sse:1b8a998b-fec3-4568-b6dc-9f0dd7a798b3
+2026-05-21 08:45:26.262 | INFO     | logging:callHandlers:1737 [TASKS] - [Graph Stream Update] Completed Node: 'research_agents'
+2026-05-21 08:45:26.264 | INFO     | logging:callHandlers:1737 [TASKS] - [SSE Publish Local] Pushing event 'research_completed' to session 1b8a998b-fec3-4568-b6dc-9f0dd7a798b3
+2026-05-21 08:45:26.266 | INFO     | logging:callHandlers:1737 [TASKS] - [SSE Publish Redis] Published event 'research_completed' to channel company_intel:sse:1b8a998b-fec3-4568-b6dc-9f0dd7a798b3
+2026-05-21 08:45:26.296 | INFO     | logging:callHandlers:1737 [TASKS] - [Graph Stream Update] Completed Node: 'consolidation'
+2026-05-21 08:45:26.302 | INFO     | logging:callHandlers:1737 [TASKS] - [SSE Publish Local] Pushing event 'consolidation_completed' to session 1b8a998b-fec3-4568-b6dc-9f0dd7a798b3
+2026-05-21 08:45:26.304 | INFO     | logging:callHandlers:1737 [TASKS] - [SSE Publish Redis] Published event 'consolidation_completed' to channel company_intel:sse:1b8a998b-fec3-4568-b6dc-9f0dd7a798b3
+2026-05-21 08:45:26.358 | INFO     | logging:callHandlers:1737 [TASKS] - [Graph Stream Update] Completed Node: 'validation'
+2026-05-21 08:45:26.361 | INFO     | logging:callHandlers:1737 [TASKS] - [SSE Publish Local] Pushing event 'validation_completed' to session 1b8a998b-fec3-4568-b6dc-9f0dd7a798b3
+2026-05-21 08:45:26.362 | INFO     | logging:callHandlers:1737 [TASKS] - [SSE Publish Redis] Published event 'validation_completed' to channel company_intel:sse:1b8a998b-fec3-4568-b6dc-9f0dd7a798b3
+2026-05-21 08:46:02.147 | INFO     | logging:callHandlers:1737 [TASKS] - [Graph Stream Update] Completed Node: 'final_output'
+2026-05-21 08:46:02.154 | INFO     | logging:callHandlers:1737 [TASKS] - [SSE Publish Local] Pushing event 'report_compiled' to session 1b8a998b-fec3-4568-b6dc-9f0dd7a798b3
+2026-05-21 08:46:02.156 | INFO     | logging:callHandlers:1737 [TASKS] - [SSE Publish Redis] Published event 'report_compiled' to channel company_intel:sse:1b8a998b-fec3-4568-b6dc-9f0dd7a798b3
+2026-05-21 08:46:02.292 | INFO     | logging:callHandlers:1737 [TASKS] - [Graph Stream Update] Completed Node: 'supabase_storage'
+2026-05-21 08:46:02.298 | INFO     | logging:callHandlers:1737 [TASKS] - [SSE Publish Local] Pushing event 'storage_completed' to session 1b8a998b-fec3-4568-b6dc-9f0dd7a798b3
+2026-05-21 08:46:02.304 | INFO     | logging:callHandlers:1737 [TASKS] - [SSE Publish Redis] Published event 'storage_completed' to channel company_intel:sse:1b8a998b-fec3-4568-b6dc-9f0dd7a798b3
+2026-05-21 08:46:02.390 | INFO     | logging:callHandlers:1737 [TASKS] - [Graph Stream Update] Completed Node: 'local_export'
+2026-05-21 08:46:02.414 | WARNING  | logging:callHandlers:1737 [TASKS] - ⚠️ [Circuit Breaker] Redis operation failure recorded (1/5).
+2026-05-21 08:46:02.419 | ERROR    | logging:callHandlers:1737 [TASKS] - ❌ [Redis Operation Failure] Operation failed: unknown command 'eval', with args beginning with: 
+2026-05-21 08:46:02.423 | WARNING  | logging:callHandlers:1737 [TASKS] - ⚠️ [Redis Lock] EVAL unsupported for 'orchestration:apple:lock': unknown command 'eval', with args beginning with: . Falling back to direct delete.
+2026-05-21 08:46:02.429 | WARNING  | logging:callHandlers:1737 [TASKS] - 🔓 [Redis Lock] Direct delete fallback succeeded for 'orchestration:apple:lock' (ID: 1b8a998b-fec3-4568-b6dc-9f0dd7a798b3)
+2026-05-21 08:46:02.444 | INFO     | logging:callHandlers:1737 [TASKS] - [SSE Publish Redis] Published event 'workflow_ended' to channel company_intel:sse:1b8a998b-fec3-4568-b6dc-9f0dd7a798b3
+2026-05-21 08:54:21.812 | INFO     | logging:callHandlers:1737 [TASKS] - 🔑 [Redis Lock] Lock acquired for 'orchestration:apple:lock' (ID: fa28ea75-8f41-4a9c-9a5d-8b76201b40a2, TTL: 1800s)
+2026-05-21 08:54:21.880 | INFO     | logging:callHandlers:1737 [TASKS] - Starting LangGraph workflow in background for session: fa28ea75-8f41-4a9c-9a5d-8b76201b40a2
+2026-05-21 08:54:22.622 | INFO     | logging:callHandlers:1737 [TASKS] - [Graph Stream Update] Completed Node: 'input'
+2026-05-21 08:54:22.629 | INFO     | logging:callHandlers:1737 [TASKS] - [SSE Publish Local] Pushing event 'input_normalized' to session fa28ea75-8f41-4a9c-9a5d-8b76201b40a2
+2026-05-21 08:54:22.637 | INFO     | logging:callHandlers:1737 [TASKS] - [SSE Publish Redis] Published event 'input_normalized' to channel company_intel:sse:fa28ea75-8f41-4a9c-9a5d-8b76201b40a2
+2026-05-21 08:54:29.531 | INFO     | logging:callHandlers:1737 [TASKS] - [SSE Publish Local] Pushing event 'agent_status_updated' to session fa28ea75-8f41-4a9c-9a5d-8b76201b40a2
+2026-05-21 08:54:29.533 | INFO     | logging:callHandlers:1737 [TASKS] - [SSE Publish Redis] Published event 'agent_status_updated' to channel company_intel:sse:fa28ea75-8f41-4a9c-9a5d-8b76201b40a2
+2026-05-21 08:55:05.247 | INFO     | logging:callHandlers:1737 [TASKS] - [SSE Publish Local] Pushing event 'agent_status_updated' to session fa28ea75-8f41-4a9c-9a5d-8b76201b40a2
+2026-05-21 08:55:05.248 | INFO     | logging:callHandlers:1737 [TASKS] - [SSE Publish Redis] Published event 'agent_status_updated' to channel company_intel:sse:fa28ea75-8f41-4a9c-9a5d-8b76201b40a2
+2026-05-21 08:55:05.384 | INFO     | logging:callHandlers:1737 [TASKS] - [SSE Publish Local] Pushing event 'agent_status_updated' to session fa28ea75-8f41-4a9c-9a5d-8b76201b40a2
+2026-05-21 08:55:05.386 | INFO     | logging:callHandlers:1737 [TASKS] - [SSE Publish Redis] Published event 'agent_status_updated' to channel company_intel:sse:fa28ea75-8f41-4a9c-9a5d-8b76201b40a2
+2026-05-21 08:55:06.320 | INFO     | logging:callHandlers:1737 [TASKS] - [SSE Publish Local] Pushing event 'agent_status_updated' to session fa28ea75-8f41-4a9c-9a5d-8b76201b40a2
+2026-05-21 08:55:06.321 | INFO     | logging:callHandlers:1737 [TASKS] - [SSE Publish Redis] Published event 'agent_status_updated' to channel company_intel:sse:fa28ea75-8f41-4a9c-9a5d-8b76201b40a2
+2026-05-21 08:55:06.929 | INFO     | logging:callHandlers:1737 [TASKS] - [SSE Publish Local] Pushing event 'agent_status_updated' to session fa28ea75-8f41-4a9c-9a5d-8b76201b40a2
+2026-05-21 08:55:06.930 | INFO     | logging:callHandlers:1737 [TASKS] - [SSE Publish Redis] Published event 'agent_status_updated' to channel company_intel:sse:fa28ea75-8f41-4a9c-9a5d-8b76201b40a2
+2026-05-21 08:55:07.071 | INFO     | logging:callHandlers:1737 [TASKS] - [SSE Publish Local] Pushing event 'agent_status_updated' to session fa28ea75-8f41-4a9c-9a5d-8b76201b40a2
+2026-05-21 08:55:07.073 | INFO     | logging:callHandlers:1737 [TASKS] - [SSE Publish Redis] Published event 'agent_status_updated' to channel company_intel:sse:fa28ea75-8f41-4a9c-9a5d-8b76201b40a2
+2026-05-21 08:55:07.361 | INFO     | logging:callHandlers:1737 [TASKS] - [SSE Publish Local] Pushing event 'agent_status_updated' to session fa28ea75-8f41-4a9c-9a5d-8b76201b40a2
+2026-05-21 08:55:07.363 | INFO     | logging:callHandlers:1737 [TASKS] - [SSE Publish Redis] Published event 'agent_status_updated' to channel company_intel:sse:fa28ea75-8f41-4a9c-9a5d-8b76201b40a2
+2026-05-21 08:55:07.387 | INFO     | logging:callHandlers:1737 [TASKS] - [Graph Stream Update] Completed Node: 'research_agents'
+2026-05-21 08:55:07.396 | INFO     | logging:callHandlers:1737 [TASKS] - [SSE Publish Local] Pushing event 'research_completed' to session fa28ea75-8f41-4a9c-9a5d-8b76201b40a2
+2026-05-21 08:55:07.399 | INFO     | logging:callHandlers:1737 [TASKS] - [SSE Publish Redis] Published event 'research_completed' to channel company_intel:sse:fa28ea75-8f41-4a9c-9a5d-8b76201b40a2
+2026-05-21 08:55:07.448 | INFO     | logging:callHandlers:1737 [TASKS] - [Graph Stream Update] Completed Node: 'consolidation'
+2026-05-21 08:55:07.458 | INFO     | logging:callHandlers:1737 [TASKS] - [SSE Publish Local] Pushing event 'consolidation_completed' to session fa28ea75-8f41-4a9c-9a5d-8b76201b40a2
+2026-05-21 08:55:07.460 | INFO     | logging:callHandlers:1737 [TASKS] - [SSE Publish Redis] Published event 'consolidation_completed' to channel company_intel:sse:fa28ea75-8f41-4a9c-9a5d-8b76201b40a2
+2026-05-21 08:55:07.539 | INFO     | logging:callHandlers:1737 [TASKS] - [Graph Stream Update] Completed Node: 'validation'
+2026-05-21 08:55:07.545 | INFO     | logging:callHandlers:1737 [TASKS] - [SSE Publish Local] Pushing event 'validation_completed' to session fa28ea75-8f41-4a9c-9a5d-8b76201b40a2
+2026-05-21 08:55:07.548 | INFO     | logging:callHandlers:1737 [TASKS] - [SSE Publish Redis] Published event 'validation_completed' to channel company_intel:sse:fa28ea75-8f41-4a9c-9a5d-8b76201b40a2
+2026-05-21 08:55:07.596 | INFO     | logging:callHandlers:1737 [TASKS] - [Graph Stream Update] Completed Node: 'regeneration'
+2026-05-21 08:55:07.602 | INFO     | logging:callHandlers:1737 [TASKS] - [SSE Publish Local] Pushing event 'regeneration_triggered' to session fa28ea75-8f41-4a9c-9a5d-8b76201b40a2
+2026-05-21 08:55:07.604 | INFO     | logging:callHandlers:1737 [TASKS] - [SSE Publish Redis] Published event 'regeneration_triggered' to channel company_intel:sse:fa28ea75-8f41-4a9c-9a5d-8b76201b40a2
+2026-05-21 08:55:14.571 | INFO     | logging:callHandlers:1737 [TASKS] - [SSE Publish Local] Pushing event 'agent_status_updated' to session fa28ea75-8f41-4a9c-9a5d-8b76201b40a2
+2026-05-21 08:55:14.572 | INFO     | logging:callHandlers:1737 [TASKS] - [SSE Publish Redis] Published event 'agent_status_updated' to channel company_intel:sse:fa28ea75-8f41-4a9c-9a5d-8b76201b40a2
+2026-05-21 08:55:51.533 | INFO     | logging:callHandlers:1737 [TASKS] - [SSE Publish Local] Pushing event 'agent_status_updated' to session fa28ea75-8f41-4a9c-9a5d-8b76201b40a2
+2026-05-21 08:55:51.534 | INFO     | logging:callHandlers:1737 [TASKS] - [SSE Publish Redis] Published event 'agent_status_updated' to channel company_intel:sse:fa28ea75-8f41-4a9c-9a5d-8b76201b40a2
+2026-05-21 08:55:52.039 | INFO     | logging:callHandlers:1737 [TASKS] - [SSE Publish Local] Pushing event 'agent_status_updated' to session fa28ea75-8f41-4a9c-9a5d-8b76201b40a2
+2026-05-21 08:55:52.040 | INFO     | logging:callHandlers:1737 [TASKS] - [SSE Publish Redis] Published event 'agent_status_updated' to channel company_intel:sse:fa28ea75-8f41-4a9c-9a5d-8b76201b40a2
+2026-05-21 08:55:52.073 | INFO     | logging:callHandlers:1737 [TASKS] - [SSE Publish Local] Pushing event 'agent_status_updated' to session fa28ea75-8f41-4a9c-9a5d-8b76201b40a2
+2026-05-21 08:55:52.074 | INFO     | logging:callHandlers:1737 [TASKS] - [SSE Publish Redis] Published event 'agent_status_updated' to channel company_intel:sse:fa28ea75-8f41-4a9c-9a5d-8b76201b40a2
+2026-05-21 08:55:52.085 | INFO     | logging:callHandlers:1737 [TASKS] - [Graph Stream Update] Completed Node: 'research_agents'
+2026-05-21 08:55:52.088 | INFO     | logging:callHandlers:1737 [TASKS] - [SSE Publish Local] Pushing event 'research_completed' to session fa28ea75-8f41-4a9c-9a5d-8b76201b40a2
+2026-05-21 08:55:52.090 | INFO     | logging:callHandlers:1737 [TASKS] - [SSE Publish Redis] Published event 'research_completed' to channel company_intel:sse:fa28ea75-8f41-4a9c-9a5d-8b76201b40a2
+2026-05-21 08:55:52.108 | INFO     | logging:callHandlers:1737 [TASKS] - [Graph Stream Update] Completed Node: 'consolidation'
+2026-05-21 08:55:52.112 | INFO     | logging:callHandlers:1737 [TASKS] - [SSE Publish Local] Pushing event 'consolidation_completed' to session fa28ea75-8f41-4a9c-9a5d-8b76201b40a2
+2026-05-21 08:55:52.113 | INFO     | logging:callHandlers:1737 [TASKS] - [SSE Publish Redis] Published event 'consolidation_completed' to channel company_intel:sse:fa28ea75-8f41-4a9c-9a5d-8b76201b40a2
+2026-05-21 08:55:52.149 | INFO     | logging:callHandlers:1737 [TASKS] - [Graph Stream Update] Completed Node: 'validation'
+2026-05-21 08:55:52.152 | INFO     | logging:callHandlers:1737 [TASKS] - [SSE Publish Local] Pushing event 'validation_completed' to session fa28ea75-8f41-4a9c-9a5d-8b76201b40a2
+2026-05-21 08:55:52.153 | INFO     | logging:callHandlers:1737 [TASKS] - [SSE Publish Redis] Published event 'validation_completed' to channel company_intel:sse:fa28ea75-8f41-4a9c-9a5d-8b76201b40a2
+2026-05-21 08:55:52.172 | INFO     | logging:callHandlers:1737 [TASKS] - [Graph Stream Update] Completed Node: 'regeneration'
+2026-05-21 08:55:52.174 | INFO     | logging:callHandlers:1737 [TASKS] - [SSE Publish Local] Pushing event 'regeneration_triggered' to session fa28ea75-8f41-4a9c-9a5d-8b76201b40a2
+2026-05-21 08:55:52.176 | INFO     | logging:callHandlers:1737 [TASKS] - [SSE Publish Redis] Published event 'regeneration_triggered' to channel company_intel:sse:fa28ea75-8f41-4a9c-9a5d-8b76201b40a2
+2026-05-21 08:55:56.430 | INFO     | logging:callHandlers:1737 [TASKS] - [SSE Publish Local] Pushing event 'agent_status_updated' to session fa28ea75-8f41-4a9c-9a5d-8b76201b40a2
+2026-05-21 08:55:56.431 | INFO     | logging:callHandlers:1737 [TASKS] - [SSE Publish Redis] Published event 'agent_status_updated' to channel company_intel:sse:fa28ea75-8f41-4a9c-9a5d-8b76201b40a2
+2026-05-21 08:56:34.232 | INFO     | logging:callHandlers:1737 [TASKS] - [SSE Publish Local] Pushing event 'agent_status_updated' to session fa28ea75-8f41-4a9c-9a5d-8b76201b40a2
+2026-05-21 08:56:34.233 | INFO     | logging:callHandlers:1737 [TASKS] - [SSE Publish Redis] Published event 'agent_status_updated' to channel company_intel:sse:fa28ea75-8f41-4a9c-9a5d-8b76201b40a2
+2026-05-21 08:56:34.249 | INFO     | logging:callHandlers:1737 [TASKS] - [SSE Publish Local] Pushing event 'agent_status_updated' to session fa28ea75-8f41-4a9c-9a5d-8b76201b40a2
+2026-05-21 08:56:34.250 | INFO     | logging:callHandlers:1737 [TASKS] - [SSE Publish Redis] Published event 'agent_status_updated' to channel company_intel:sse:fa28ea75-8f41-4a9c-9a5d-8b76201b40a2
+2026-05-21 08:56:34.333 | INFO     | logging:callHandlers:1737 [TASKS] - [SSE Publish Local] Pushing event 'agent_status_updated' to session fa28ea75-8f41-4a9c-9a5d-8b76201b40a2
+2026-05-21 08:56:34.334 | INFO     | logging:callHandlers:1737 [TASKS] - [SSE Publish Redis] Published event 'agent_status_updated' to channel company_intel:sse:fa28ea75-8f41-4a9c-9a5d-8b76201b40a2
+2026-05-21 08:56:34.351 | INFO     | logging:callHandlers:1737 [TASKS] - [Graph Stream Update] Completed Node: 'research_agents'
+2026-05-21 08:56:34.353 | INFO     | logging:callHandlers:1737 [TASKS] - [SSE Publish Local] Pushing event 'research_completed' to session fa28ea75-8f41-4a9c-9a5d-8b76201b40a2
+2026-05-21 08:56:34.354 | INFO     | logging:callHandlers:1737 [TASKS] - [SSE Publish Redis] Published event 'research_completed' to channel company_intel:sse:fa28ea75-8f41-4a9c-9a5d-8b76201b40a2
+2026-05-21 08:56:34.370 | INFO     | logging:callHandlers:1737 [TASKS] - [Graph Stream Update] Completed Node: 'consolidation'
+2026-05-21 08:56:34.373 | INFO     | logging:callHandlers:1737 [TASKS] - [SSE Publish Local] Pushing event 'consolidation_completed' to session fa28ea75-8f41-4a9c-9a5d-8b76201b40a2
+2026-05-21 08:56:34.374 | INFO     | logging:callHandlers:1737 [TASKS] - [SSE Publish Redis] Published event 'consolidation_completed' to channel company_intel:sse:fa28ea75-8f41-4a9c-9a5d-8b76201b40a2
+2026-05-21 08:56:34.407 | INFO     | logging:callHandlers:1737 [TASKS] - [Graph Stream Update] Completed Node: 'validation'
+2026-05-21 08:56:34.408 | INFO     | logging:callHandlers:1737 [TASKS] - [SSE Publish Local] Pushing event 'validation_completed' to session fa28ea75-8f41-4a9c-9a5d-8b76201b40a2
+2026-05-21 08:56:34.409 | INFO     | logging:callHandlers:1737 [TASKS] - [SSE Publish Redis] Published event 'validation_completed' to channel company_intel:sse:fa28ea75-8f41-4a9c-9a5d-8b76201b40a2
+2026-05-21 08:56:34.429 | INFO     | logging:callHandlers:1737 [TASKS] - [Graph Stream Update] Completed Node: 'regeneration'
+2026-05-21 08:56:34.432 | INFO     | logging:callHandlers:1737 [TASKS] - [SSE Publish Local] Pushing event 'regeneration_triggered' to session fa28ea75-8f41-4a9c-9a5d-8b76201b40a2
+2026-05-21 08:56:34.433 | INFO     | logging:callHandlers:1737 [TASKS] - [SSE Publish Redis] Published event 'regeneration_triggered' to channel company_intel:sse:fa28ea75-8f41-4a9c-9a5d-8b76201b40a2
+2026-05-21 08:56:38.663 | INFO     | logging:callHandlers:1737 [TASKS] - [SSE Publish Local] Pushing event 'agent_status_updated' to session fa28ea75-8f41-4a9c-9a5d-8b76201b40a2
+2026-05-21 08:56:38.664 | INFO     | logging:callHandlers:1737 [TASKS] - [SSE Publish Redis] Published event 'agent_status_updated' to channel company_intel:sse:fa28ea75-8f41-4a9c-9a5d-8b76201b40a2
+2026-05-21 08:57:14.590 | INFO     | logging:callHandlers:1737 [TASKS] - [SSE Publish Local] Pushing event 'agent_status_updated' to session fa28ea75-8f41-4a9c-9a5d-8b76201b40a2
+2026-05-21 08:57:14.591 | INFO     | logging:callHandlers:1737 [TASKS] - [SSE Publish Redis] Published event 'agent_status_updated' to channel company_intel:sse:fa28ea75-8f41-4a9c-9a5d-8b76201b40a2
+2026-05-21 08:57:15.650 | INFO     | logging:callHandlers:1737 [TASKS] - [SSE Publish Local] Pushing event 'agent_status_updated' to session fa28ea75-8f41-4a9c-9a5d-8b76201b40a2
+2026-05-21 08:57:15.651 | INFO     | logging:callHandlers:1737 [TASKS] - [SSE Publish Redis] Published event 'agent_status_updated' to channel company_intel:sse:fa28ea75-8f41-4a9c-9a5d-8b76201b40a2
+2026-05-21 08:57:16.431 | INFO     | logging:callHandlers:1737 [TASKS] - [SSE Publish Local] Pushing event 'agent_status_updated' to session fa28ea75-8f41-4a9c-9a5d-8b76201b40a2
+2026-05-21 08:57:16.432 | INFO     | logging:callHandlers:1737 [TASKS] - [SSE Publish Redis] Published event 'agent_status_updated' to channel company_intel:sse:fa28ea75-8f41-4a9c-9a5d-8b76201b40a2
+2026-05-21 08:57:16.446 | INFO     | logging:callHandlers:1737 [TASKS] - [Graph Stream Update] Completed Node: 'research_agents'
+2026-05-21 08:57:16.448 | INFO     | logging:callHandlers:1737 [TASKS] - [SSE Publish Local] Pushing event 'research_completed' to session fa28ea75-8f41-4a9c-9a5d-8b76201b40a2
+2026-05-21 08:57:16.449 | INFO     | logging:callHandlers:1737 [TASKS] - [SSE Publish Redis] Published event 'research_completed' to channel company_intel:sse:fa28ea75-8f41-4a9c-9a5d-8b76201b40a2
+2026-05-21 08:57:16.472 | INFO     | logging:callHandlers:1737 [TASKS] - [Graph Stream Update] Completed Node: 'consolidation'
+2026-05-21 08:57:16.476 | INFO     | logging:callHandlers:1737 [TASKS] - [SSE Publish Local] Pushing event 'consolidation_completed' to session fa28ea75-8f41-4a9c-9a5d-8b76201b40a2
+2026-05-21 08:57:16.477 | INFO     | logging:callHandlers:1737 [TASKS] - [SSE Publish Redis] Published event 'consolidation_completed' to channel company_intel:sse:fa28ea75-8f41-4a9c-9a5d-8b76201b40a2
+2026-05-21 08:57:16.516 | INFO     | logging:callHandlers:1737 [TASKS] - [Graph Stream Update] Completed Node: 'validation'
+2026-05-21 08:57:16.518 | INFO     | logging:callHandlers:1737 [TASKS] - [SSE Publish Local] Pushing event 'validation_completed' to session fa28ea75-8f41-4a9c-9a5d-8b76201b40a2
+2026-05-21 08:57:16.521 | INFO     | logging:callHandlers:1737 [TASKS] - [SSE Publish Redis] Published event 'validation_completed' to channel company_intel:sse:fa28ea75-8f41-4a9c-9a5d-8b76201b40a2
+2026-05-21 08:57:52.170 | INFO     | logging:callHandlers:1737 [TASKS] - [Graph Stream Update] Completed Node: 'final_output'
+2026-05-21 08:57:52.175 | INFO     | logging:callHandlers:1737 [TASKS] - [SSE Publish Local] Pushing event 'report_compiled' to session fa28ea75-8f41-4a9c-9a5d-8b76201b40a2
+2026-05-21 08:57:52.177 | INFO     | logging:callHandlers:1737 [TASKS] - [SSE Publish Redis] Published event 'report_compiled' to channel company_intel:sse:fa28ea75-8f41-4a9c-9a5d-8b76201b40a2
+2026-05-21 08:57:52.287 | INFO     | logging:callHandlers:1737 [TASKS] - [Graph Stream Update] Completed Node: 'supabase_storage'
+2026-05-21 08:57:52.292 | INFO     | logging:callHandlers:1737 [TASKS] - [SSE Publish Local] Pushing event 'storage_completed' to session fa28ea75-8f41-4a9c-9a5d-8b76201b40a2
+2026-05-21 08:57:52.295 | INFO     | logging:callHandlers:1737 [TASKS] - [SSE Publish Redis] Published event 'storage_completed' to channel company_intel:sse:fa28ea75-8f41-4a9c-9a5d-8b76201b40a2
+2026-05-21 08:57:52.342 | INFO     | logging:callHandlers:1737 [TASKS] - [Graph Stream Update] Completed Node: 'local_export'
+2026-05-21 08:57:52.363 | WARNING  | logging:callHandlers:1737 [TASKS] - ⚠️ [Circuit Breaker] Redis operation failure recorded (1/5).
+2026-05-21 08:57:52.367 | ERROR    | logging:callHandlers:1737 [TASKS] - ❌ [Redis Operation Failure] Operation failed: unknown command 'eval', with args beginning with: 
+2026-05-21 08:57:52.370 | WARNING  | logging:callHandlers:1737 [TASKS] - ⚠️ [Redis Lock] EVAL unsupported for 'orchestration:apple:lock': unknown command 'eval', with args beginning with: . Falling back to direct delete.
+2026-05-21 08:57:52.378 | WARNING  | logging:callHandlers:1737 [TASKS] - 🔓 [Redis Lock] Direct delete fallback succeeded for 'orchestration:apple:lock' (ID: fa28ea75-8f41-4a9c-9a5d-8b76201b40a2)
+2026-05-21 08:57:52.386 | INFO     | logging:callHandlers:1737 [TASKS] - [SSE Publish Redis] Published event 'workflow_ended' to channel company_intel:sse:fa28ea75-8f41-4a9c-9a5d-8b76201b40a2
