@@ -1,0 +1,70 @@
+# Implementation Plan: Resolving Supabase Schema Cache Error (PGRST205)
+
+The corporate research pipeline failed with an HTTP 500 database initialization error because the required relational tables (such as `research_sessions`, `users`, etc.) have not yet been created in your remote Supabase project (`hkwessehtaonqaakzyvj`). 
+
+This plan outlines the root cause and provides two straightforward approaches to apply the initialization migrations so the platform can run seamlessly.
+
+---
+
+## Root Cause Analysis
+
+Your backend is configured to connect to the Supabase instance `https://hkwessehtaonqaakzyvj.supabase.co` using the public `anon` key. A direct query to this REST API confirms that the table `research_sessions` does not exist:
+
+* **Error Code**: `PGRST205`
+* **Error Message**: `Could not find the table 'public.research_sessions' in the schema cache`
+* **Exposed Tables**: The database only contains the default `countries` template table.
+
+To resolve this, the SQL DDL commands in [20260511000000_init_schema.sql](file:///d:/ps_03/company-intelligence-platform/supabase/migrations/20260511000000_init_schema.sql) must be executed on your Supabase project.
+
+---
+
+## User Review Required
+
+Please review the two options below for applying the database schema and let us know which approach you prefer:
+
+> [!IMPORTANT]
+> ### Approach 1: Run SQL in the Supabase Dashboard SQL Editor (Recommended & Safest)
+> Since you have the Supabase Sign-In page open in your browser, you can log in and apply the schema directly:
+> 
+> 1. Sign in to your [Supabase Dashboard](https://supabase.com/dashboard/sign-in?returnTo=%2Fproject%2Fhkwessehtaonqaakzyvj).
+> 2. Select your project: **`hkwessehtaonqaakzyvj`**.
+> 3. Navigate to the **SQL Editor** tab on the left sidebar (the terminal/script icon).
+> 4. Click **New query** (or **New Snippet**).
+> 5. Copy the entire SQL content from [20260511000000_init_schema.sql](file:///d:/ps_03/company-intelligence-platform/supabase/migrations/20260511000000_init_schema.sql).
+> 6. Paste it into the editor and click **Run** (or press `Ctrl + Enter`).
+> 
+> Once done, Supabase's PostgREST will automatically reload the schema cache, and the table `research_sessions` will be active immediately!
+
+> [!TIP]
+> ### Approach 2: Let Antigravity Automate it (Requires DB Password)
+> If you prefer, you can provide your **Supabase Database Password** (the password you created when initializing the Supabase project). 
+> 
+> Once you provide the password, I will:
+> 1. Construct the PostgreSQL connection string:
+>    `postgresql://postgres:[password]@db.hkwessehtaonqaakzyvj.supabase.co:5432/postgres`
+> 2. Run a Python migration script to execute the SQL in [20260511000000_init_schema.sql](file:///d:/ps_03/company-intelligence-platform/supabase/migrations/20260511000000_init_schema.sql).
+> 3. Verify that the tables are registered and active.
+
+---
+
+## Proposed Changes
+
+No code modifications are required for the application logic itself, as the backend code is fully prepared to handle the database structure once the tables exist. 
+
+If you choose **Approach 2**, we will create a temporary utility script to run the SQL migration:
+
+#### [NEW] [apply_migration.py](file:///d:/ps_03/company-intelligence-platform/backend/apply_migration.py)
+* Connects to Supabase PostgreSQL using `psycopg2-binary`.
+* Reads and executes [20260511000000_init_schema.sql](file:///d:/ps_03/company-intelligence-platform/supabase/migrations/20260511000000_init_schema.sql).
+* Reports completion and cleans up.
+
+---
+
+## Verification Plan
+
+### Automated Tests
+1. **Supabase REST Verification**: Run a REST query against `/rest/v1/research_sessions?limit=1` to ensure it returns a successful HTTP `200` status instead of a `404` error.
+2. **Backend Health Check**: Run a curl/requests test to `http://localhost:8001/` (the backend API port) and verify that `"supabase_connection": "alive"` is returned.
+
+### Manual Verification
+1. **Frontend Search Run**: Trigger a search on `http://localhost:5173/` and confirm that the loading animation starts, specialized agents trigger, and the error banner does not appear.

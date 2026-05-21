@@ -1,0 +1,8 @@
+stages:
+  - migrate
+
+migrate_database:
+  stage: migrate
+  script:
+    - cd backend
+    - python -c "from app.utils.db_reconciler import reconcile_database_schema; reconcile_database_schema()"

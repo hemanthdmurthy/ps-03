@@ -1,0 +1,85 @@
+{
+    "company_name": "Openai",
+    "summary": "Openai is a high-growth AI Agent SaaS & Orchestration DevTools enterprise. Headquartered in San Francisco, under the leadership of CEO Sarah Jenkins, the team has expanded to approximately 150-200 employees. With a total backing of $24.5M from premiere venture capitalist institutions, they focus primarily on producing scalable Agent Core.",
+    "market_analysis": {
+        "primary_sector": "AI Agent SaaS & Orchestration DevTools",
+        "global_headquarters": "456 Mission Street, Suite 800, San Francisco, CA 94105",
+        "scale_assessment": "Mid-Market Growth",
+        "market_demand": "High. Strong tailwinds in developer productivity tooling and customized AI pipeline engineering.",
+        "operational_footprint": [
+            "San Francisco, CA (HQ)",
+            "London, UK",
+            "Bangalore, India"
+        ]
+    },
+    "competitor_insights": {
+        "known_competitors": [
+            "HubSpot",
+            "Salesforce",
+            "Retool",
+            "n8n",
+            "LangChain"
+        ],
+        "competitive_advantages": [
+            "Modular and open-source SDK availability on GitHub.",
+            "Real-time token counting and fine-grained budget tracking.",
+            "Seamless containerized deployment via Docker and Kubernetes."
+        ],
+        "swot_analysis": {
+            "strengths": [
+                "Venture-backed by top-tier VCs like Sequoia",
+                "Robust technology architecture",
+                "High engineering sentiment"
+            ],
+            "weaknesses": [
+                "Relatively young (founded in 2021)",
+                "Intense competitive space with rapid open-source developments"
+            ],
+            "opportunities": [
+                "Expansion into EMEA markets with localized compliant servers",
+                "Enterprise customized training SLAs"
+            ],
+            "threats": [
+                "Consolidation of developer platforms by tech giants (GitHub, Microsoft)"
+            ]
+        }
+    },
+    "technology_stack": [
+        "Python 3.11",
+        "FastAPI",
+        "React 18",
+        "Vite",
+        "Supabase",
+        "Docker",
+        "PostgreSQL"
+    ],
+    "funding_status": {
+        "total_capital_usd": "$24.5M",
+        "current_series": "Series A",
+        "recent_round_details": {
+            "amount": "$18.0M",
+            "date": "October 14, 2025",
+            "lead_investor": "Sequoia Capital"
+        },
+        "investor_syndicate": [
+            "Sequoia Capital",
+            "Andreessen Horowitz (a16z)",
+            "Founders Fund"
+        ],
+        "implied_valuation": "$110.0M"
+    },
+    "risk_opportunity_analysis": {
+        "overall_risk_level": "Moderate",
+        "gaps_identified": "Developers are actively requesting native integration modules for AWS Bedrock and localized European hosting parameters.",
+        "critical_fail_safes": [
+            "Uptime looks excellent.",
+            "No regulator or legal investigations flagged."
+        ]
+    },
+    "token_usage_summary": {
+        "total_input_tokens": 16423,
+        "total_output_tokens": 6657,
+        "total_tokens": 23080,
+        "approximate_cost_usd": 0.0462
+    }
+}

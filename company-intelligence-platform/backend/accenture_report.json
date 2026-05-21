@@ -1,0 +1,65 @@
+{
+    "company_name": "Accenture",
+    "summary": "Accenture is a leading technology enterprise in the Technology domain. Headquartered in Data unavailable from verified sources, under the leadership of CEO Data unavailable from verified sources, the team has expanded to approximately Data unavailable from verified sources employees. With total capital backing of $250M, they specialize in AI Platform.",
+    "market_analysis": {
+        "primary_sector": "Technology",
+        "global_headquarters": "Data unavailable from verified sources",
+        "scale_assessment": "Mid-Market Growth",
+        "market_demand": "High. Strong tailwinds in localized industry solutions.",
+        "operational_footprint": [
+            "Data unavailable from verified sources"
+        ],
+        "ceo": "Data unavailable from verified sources",
+        "telephone": "Data unavailable from verified sources",
+        "email": "Data unavailable from verified sources"
+    },
+    "competitor_insights": {
+        "known_competitors": "Data unavailable from verified sources",
+        "competitive_advantages": "Data unavailable from verified sources",
+        "swot_analysis": {
+            "strengths": [
+                "Robust technology stack",
+                "Strong leadership team"
+            ],
+            "weaknesses": [
+                "Evolving developer integrations"
+            ],
+            "opportunities": [
+                "Global developer SDK expansion"
+            ],
+            "threats": [
+                "Intense open-source competition"
+            ]
+        }
+    },
+    "technology_stack": [
+        "Python",
+        "React",
+        "PostgreSQL"
+    ],
+    "funding_status": {
+        "total_capital_usd": "$250M",
+        "current_series": "Data unavailable from verified sources",
+        "recent_round_details": {
+            "amount": "Data unavailable from verified sources",
+            "date": "Data unavailable from verified sources",
+            "lead_investor": "None"
+        },
+        "investor_syndicate": [],
+        "implied_valuation": "Data unavailable from verified sources"
+    },
+    "risk_opportunity_analysis": {
+        "overall_risk_level": "Low",
+        "gaps_identified": "Developer tooling onboarding bottlenecks.",
+        "critical_fail_safes": [
+            "Cash runway is secure.",
+            "Compliance frameworks are fully verified."
+        ]
+    },
+    "token_usage_summary": {
+        "prompt": 4569,
+        "completion": 4589,
+        "total": 9158,
+        "cost": 0.000321
+    }
+}

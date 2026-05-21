@@ -1,0 +1,56 @@
+[tool.pytest.ini_options]
+minversion = "6.0"
+addopts = "-ra -q --tb=short"
+testpaths = [
+    "."
+]
+python_files = "test_*.py"
+python_classes = "Test*"
+python_functions = "test_*"
+filterwarnings = [
+    "ignore::DeprecationWarning",
+    "ignore::UserWarning",
+    "ignore::RuntimeWarning",
+]
+
+[tool.ruff]
+# Target Python version 3.11
+target-version = "py311"
+line-length = 88
+# Explicitly exclude third-party or auto-generated directories
+exclude = [
+    ".git",
+    "__pycache__",
+    "venv",
+    ".venv",
+    ".pytest_cache",
+    "alembic",
+    "scratch",
+    "*.json",
+    "database",
+    "extract_parameters.py"
+]
+
+[tool.ruff.lint]
+# Enable standard Pyflakes (F) and pycodestyle (E, W)
+select = ["E", "F", "W"]
+# Ignore style rules that are overly restrictive for existing production files
+ignore = [
+    "E501", # Line length (handled by formatter)
+    "F401", # Unused imports (common in legacy files or __init__.py)
+    "E402", # Module import not at top (common in scripts appending to sys.path)
+    "E701", # Multiple statements on one line (colon)
+    "E702", # Multiple statements on one line (semicolon)
+    "E703", # Useless semicolon
+    "E741", # Ambiguous variable name
+    "E712", # Comparison to True/False
+    "F841", # Unused variable
+    "W291"  # Trailing whitespace (common in multi-line comments)
+]
+
+[tool.ruff.format]
+quote-style = "double"
+indent-style = "space"
+skip-magic-trailing-comma = false
+line-ending = "auto"
+

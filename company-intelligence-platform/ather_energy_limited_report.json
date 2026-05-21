@@ -1,0 +1,65 @@
+{
+    "company_name": "Ather Energy Limited",
+    "summary": "Ather Energy Limited is a leading technology enterprise in the EV Manufacturer domain. Headquartered in Bengaluru, Karnataka, India, under the leadership of CEO Data unavailable from verified sources, the team has expanded to approximately 1000-5000 employees. With total capital backing of $250M, they specialize in AI Platform.",
+    "market_analysis": {
+        "primary_sector": "EV Manufacturer",
+        "global_headquarters": "Bengaluru, Karnataka, India",
+        "scale_assessment": "Enterprise/Global Scale",
+        "market_demand": "High. Strong tailwinds in localized industry solutions.",
+        "operational_footprint": [
+            "Bengaluru, Karnataka, India"
+        ],
+        "ceo": "Data unavailable from verified sources",
+        "telephone": "+91 80 1234 5678",
+        "email": "info@atherenergy.com"
+    },
+    "competitor_insights": {
+        "known_competitors": "Data unavailable from verified sources",
+        "competitive_advantages": "Data unavailable from verified sources",
+        "swot_analysis": {
+            "strengths": [
+                "Robust technology stack",
+                "Strong leadership team"
+            ],
+            "weaknesses": [
+                "Evolving developer integrations"
+            ],
+            "opportunities": [
+                "Global developer SDK expansion"
+            ],
+            "threats": [
+                "Intense open-source competition"
+            ]
+        }
+    },
+    "technology_stack": [
+        "Python",
+        "React",
+        "PostgreSQL"
+    ],
+    "funding_status": {
+        "total_capital_usd": "$250M",
+        "current_series": "Data unavailable from verified sources",
+        "recent_round_details": {
+            "amount": "Data unavailable from verified sources",
+            "date": "Data unavailable from verified sources",
+            "lead_investor": "None"
+        },
+        "investor_syndicate": [],
+        "implied_valuation": "Data unavailable from verified sources"
+    },
+    "risk_opportunity_analysis": {
+        "overall_risk_level": "Low",
+        "gaps_identified": "Developer tooling onboarding bottlenecks.",
+        "critical_fail_safes": [
+            "Cash runway is secure.",
+            "Compliance frameworks are fully verified."
+        ]
+    },
+    "token_usage_summary": {
+        "prompt": 4731,
+        "completion": 7401,
+        "total": 12132,
+        "cost": 0.0
+    }
+}

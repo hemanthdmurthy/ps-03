@@ -1,0 +1,243 @@
+# docker-compose.yml for Company Intelligence Platform
+version: '3.8'
+
+services:
+  # ==========================================
+  # PostgreSQL Database Service
+  # ==========================================
+  db:
+    image: postgres:15-alpine
+    container_name: company_intel_db
+    restart: always
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_DB: company_intel
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U postgres -d company_intel"]
+      interval: 5s
+      timeout: 5s
+      retries: 5
+    networks:
+      - app-network
+
+  # ==========================================
+  # Redis Cache & Message Broker Service
+  # ==========================================
+  redis:
+    image: redis:7-alpine
+    container_name: company_intel_redis
+    restart: always
+    command: redis-server --save 60 1 --loglevel warning
+    ports:
+      - "6379:6379"
+    volumes:
+      - redis_data:/data
+    healthcheck:
+      test: ["CMD", "redis-cli", "ping"]
+      interval: 5s
+      timeout: 5s
+      retries: 5
+    networks:
+      - app-network
+
+  # ==========================================
+  # FastAPI Backend Service
+  # ==========================================
+  backend:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    container_name: company_intel_backend
+    restart: always
+    # Run uvicorn server in reload mode for seamless development hot-reloading
+    command: uvicorn app.main:app --host 0.0.0.0 --port 8000 --reload
+    ports:
+      - "8000:8000"
+    volumes:
+      - ./backend:/code
+    env_file:
+      - ./backend/.env
+    environment:
+      - PORT=8000
+      - DATABASE_URL=postgresql://postgres:postgres@db:5432/company_intel
+      - REDIS_URL=redis://redis:6379/0
+      - CELERY_BROKER_URL=redis://redis:6379/0
+      - CELERY_RESULT_BACKEND=redis://redis:6379/0
+      - PROMETHEUS_MULTIPROCESS_DIR=/tmp/prometheus_multiproc
+      # OpenTelemetry (container-safe: uses Docker DNS, not localhost)
+      - OTEL_ENABLED=true
+      - OTEL_EXPORTER_OTLP_ENDPOINT=  # Set to http://otel-collector:4317 when collector is enabled
+      - OTEL_EXPORTER_OTLP_PROTOCOL=grpc
+      - OTEL_SERVICE_NAME=placement-intel-backend
+      - OTEL_RESOURCE_ATTRIBUTES=deployment.environment=docker,service.version=1.0.0
+      - OTEL_EXPORT_CONSOLE=false
+    depends_on:
+      db:
+        condition: service_healthy
+      redis:
+        condition: service_healthy
+    networks:
+      - app-network
+
+  # ==========================================
+  # Celery Background Worker Service
+  # ==========================================
+  celery_worker:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    container_name: company_intel_celery_worker
+    restart: always
+    command: celery -A app.core.celery_app.celery_app worker --loglevel=info
+    volumes:
+      - ./backend:/code
+    env_file:
+      - ./backend/.env
+    environment:
+      - DATABASE_URL=postgresql://postgres:postgres@db:5432/company_intel
+      - REDIS_URL=redis://redis:6379/0
+      - CELERY_BROKER_URL=redis://redis:6379/0
+      - CELERY_RESULT_BACKEND=redis://redis:6379/0
+      - PROMETHEUS_MULTIPROCESS_DIR=/tmp/prometheus_multiproc
+      # OpenTelemetry (container-safe)
+      - OTEL_ENABLED=true
+      - OTEL_EXPORTER_OTLP_ENDPOINT=
+      - OTEL_SERVICE_NAME=placement-intel-celery-worker
+      - OTEL_RESOURCE_ATTRIBUTES=deployment.environment=docker,service.version=1.0.0
+      - OTEL_EXPORT_CONSOLE=false
+    depends_on:
+      db:
+        condition: service_healthy
+      redis:
+        condition: service_healthy
+    networks:
+      - app-network
+
+  # ==========================================
+  # Celery Beat Periodic Scheduler Service
+  # ==========================================
+  celery_beat:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    container_name: company_intel_celery_beat
+    restart: always
+    command: celery -A app.core.celery_app.celery_app beat --loglevel=info
+    volumes:
+      - ./backend:/code
+    env_file:
+      - ./backend/.env
+    environment:
+      - DATABASE_URL=postgresql://postgres:postgres@db:5432/company_intel
+      - REDIS_URL=redis://redis:6379/0
+      - CELERY_BROKER_URL=redis://redis:6379/0
+      - CELERY_RESULT_BACKEND=redis://redis:6379/0
+      - PROMETHEUS_MULTIPROCESS_DIR=/tmp/prometheus_multiproc
+      # OpenTelemetry (container-safe)
+      - OTEL_ENABLED=true
+      - OTEL_EXPORTER_OTLP_ENDPOINT=
+      - OTEL_SERVICE_NAME=placement-intel-celery-beat
+      - OTEL_RESOURCE_ATTRIBUTES=deployment.environment=docker,service.version=1.0.0
+      - OTEL_EXPORT_CONSOLE=false
+    depends_on:
+      db:
+        condition: service_healthy
+      redis:
+        condition: service_healthy
+    networks:
+      - app-network
+
+  # ==========================================
+  # Frontend Service
+  # ==========================================
+  frontend:
+    build:
+      context: ./frontend
+    container_name: company_intel_frontend
+    ports:
+      - "5173:80"
+    depends_on:
+      - backend
+    restart: always
+    networks:
+      - app-network
+
+  # ==========================================
+  # Prometheus Monitoring Service
+  # ==========================================
+  prometheus:
+    image: prom/prometheus:v2.45.0
+    container_name: company_intel_prometheus
+    restart: always
+    volumes:
+      - ./monitoring/prometheus/prometheus.yml:/etc/prometheus/prometheus.yml
+      - ./monitoring/prometheus/alert.rules.yml:/etc/prometheus/alert.rules.yml
+      - prometheus_data:/prometheus
+    ports:
+      - "9090:9090"
+    depends_on:
+      - backend
+      - celery_worker
+    networks:
+      - app-network
+
+  # ==========================================
+  # Grafana Dashboard Analytics Service
+  # ==========================================
+  grafana:
+    image: grafana/grafana:10.0.0
+    container_name: company_intel_grafana
+    restart: always
+    volumes:
+      - ./monitoring/grafana/provisioning/datasources:/etc/grafana/provisioning/datasources
+      - ./monitoring/grafana/provisioning/dashboards:/etc/grafana/provisioning/dashboards
+      - ./monitoring/grafana/dashboards:/var/lib/grafana/dashboards
+      - grafana_data:/var/lib/grafana
+    ports:
+      - "3000:3000"
+    depends_on:
+      - prometheus
+    networks:
+      - app-network
+
+  # ==========================================
+  # OpenTelemetry Collector (Opt-In)
+  # Uncomment below to enable distributed trace collection.
+  # Then set OTEL_EXPORTER_OTLP_ENDPOINT=http://otel-collector:4317
+  # in backend, celery_worker, and celery_beat environment sections.
+  # ==========================================
+  # otel-collector:
+  #   image: otel/opentelemetry-collector-contrib:0.96.0
+  #   container_name: company_intel_otel_collector
+  #   restart: always
+  #   command: ["--config=/etc/otelcol/config.yaml"]
+  #   volumes:
+  #     - ./monitoring/otel-collector/config.yaml:/etc/otelcol/config.yaml:ro
+  #   ports:
+  #     - "4317:4317"   # OTLP gRPC
+  #     - "4318:4318"   # OTLP HTTP
+  #     - "8889:8889"   # Prometheus metrics exporter
+  #   networks:
+  #     - app-network
+
+# Networks configuration
+networks:
+  app-network:
+    driver: bridge
+
+# Persistent Volumes
+volumes:
+  postgres_data:
+    driver: local
+  redis_data:
+    driver: local
+  prometheus_data:
+    driver: local
+  grafana_data:
+    driver: local
+

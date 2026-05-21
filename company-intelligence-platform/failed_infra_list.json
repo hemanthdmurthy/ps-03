@@ -1,0 +1,20 @@
+[
+  {
+    "service": "FastAPI Backend Gateway",
+    "port": 8000,
+    "status": "FAIL_DEGRADED",
+    "risk": "Blocks all REST API integrations"
+  },
+  {
+    "service": "Vite React Frontend server",
+    "port": 5173,
+    "status": "FAIL_DEGRADED",
+    "risk": "Blocks static client deliveries"
+  },
+  {
+    "service": "Prometheus Metrics server",
+    "port": 9090,
+    "status": "FAIL_DEGRADED",
+    "risk": "Blocks telemetry scrapes"
+  }
+]

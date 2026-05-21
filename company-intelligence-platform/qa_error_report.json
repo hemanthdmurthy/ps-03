@@ -1,0 +1,122 @@
+[
+  {
+    "module_name": "Database",
+    "component": "app.core.database",
+    "test_case": "Database Connection Liveness Startup Audit",
+    "status": "FAIL",
+    "severity": "CRITICAL",
+    "error_type": "ConnectionTimeout / Thread Blockage",
+    "root_cause": "Synchronous database schema reconciliation runs during application startup within import statements, locking Uvicorn's single ASGI thread when network lag occurs.",
+    "failure_chain": "Database Connection Lag -> Hangups in import statement -> Blocks Uvicorn worker thread -> Health pings fail -> Rolling deployment rollback.",
+    "reproduction_steps": "1. Shut down PostgreSQL container. 2. Start FastAPI gateway. 3. Query health route Port 8000 and verify gateway hangs.",
+    "expected_behavior": "Uvicorn starts immediately; database connection lag is handled asynchronously or in isolated pre-boot tasks.",
+    "actual_behavior": "Uvicorn locks and refuses connection requests until standard socket timeout limits expire.",
+    "affected_files": [
+      "backend/app/core/database.py",
+      "backend/app/main.py"
+    ],
+    "affected_services": [
+      "FastAPI Web Gateway",
+      "PostgreSQL Database Adapter"
+    ],
+    "stack_trace": "TimeoutError: [Errno 110] Connection timed out\\n  at app/core/database.py:141 in reconcile_database_schema",
+    "performance_impact": "Severe: Gateway startup latency increases from 200ms to over 20 seconds.",
+    "security_impact": "None.",
+    "stability_impact": "High: Rolling deployments fail automatically due to failing Docker liveness checks.",
+    "recommended_fix": "Decouple reconcile_database_schema() from standard base imports. Execute migrations in isolated pre-boot jobs.",
+    "priority_order": "1",
+    "dependency_impact": "Blocks all downstream API routers from resolving client HTTP queries during startup.",
+    "logs_reference": "LOG-STARTUP-DB-TIMEOUT-001",
+    "timestamp": "2026-05-20T12:19:16Z"
+  },
+  {
+    "module_name": "Authentication",
+    "component": "app.utils.security",
+    "test_case": "User Onboarding & JWT Bearer Token Generation",
+    "status": "FAIL",
+    "severity": "HIGH",
+    "error_type": "AttributeError",
+    "root_cause": "Security helpers and auth modules reference settings.SECRET_KEY instead of the correctly configured settings.JWT_SECRET_KEY.",
+    "failure_chain": "User Login Request -> Calls token generator helper -> References non-existent SECRET_KEY attribute -> AttributeError crash -> FastAPI returns HTTP 500.",
+    "reproduction_steps": "1. Send a POST request to /api/v1/auth/login. 2. Observe AttributeError regarding SECRET_KEY key in logs.",
+    "expected_behavior": "Bearer tokens are signed using settings.JWT_SECRET_KEY.",
+    "actual_behavior": "AttributeError crash halts active JWT signature loops.",
+    "affected_files": [
+      "backend/app/utils/security.py",
+      "backend/app/routes/v1/auth.py"
+    ],
+    "affected_services": [
+      "FastAPI Web Gateway",
+      "JWT Authentication Middleware"
+    ],
+    "stack_trace": "AttributeError: 'Settings' object has no attribute 'SECRET_KEY'\\n  at app/utils/security.py:84 in generate_access_token",
+    "performance_impact": "None.",
+    "security_impact": "Critical: Completely disables bearer token signature generations, locking portal entry.",
+    "stability_impact": "High: User login and authentication functions remain offline.",
+    "recommended_fix": "Rename all references to settings.SECRET_KEY inside app.utils.security to settings.JWT_SECRET_KEY.",
+    "priority_order": "2",
+    "dependency_impact": "Halts student portal dashboard renders and recruiter placement application updates.",
+    "logs_reference": "LOG-AUTH-JWT-KEY-ERROR-002",
+    "timestamp": "2026-05-20T12:19:16Z"
+  },
+  {
+    "module_name": "Redis Cache",
+    "component": "app.services.redis_service",
+    "test_case": "Redis Mutex Lock Acquisition / Release Context",
+    "status": "FAIL",
+    "severity": "MEDIUM",
+    "error_type": "RuntimeError",
+    "root_cause": "Helper libraries execute asyncio.get_event_loop() inside synchronous contexts (like Celery worker threads or testing runners) which throws RuntimeError in Python 3.10+.",
+    "failure_chain": "Celery executes job -> Invokes Redis lock helper -> get_event_loop() throws RuntimeError -> Background task fails mid-crawl.",
+    "reproduction_steps": "1. Run a Redis-dependent database or cache check within a synchronous test suite. 2. Verify event loop RuntimeError in terminal.",
+    "expected_behavior": "Dynamic event loop detectors spin up new thread loops using asyncio.new_event_loop() when current loop is missing.",
+    "actual_behavior": "RuntimeError exceptions block execution pipeline runs.",
+    "affected_files": [
+      "backend/app/services/redis_service.py",
+      "backend/app/core/redis_client.py"
+    ],
+    "affected_services": [
+      "Redis Cache Service",
+      "Celery Background Task Workers"
+    ],
+    "stack_trace": "RuntimeError: There is no current event loop in thread 'MainThread'\\n  at asyncio/events.py:643 in get_event_loop",
+    "performance_impact": "Low.",
+    "security_impact": "None.",
+    "stability_impact": "Medium: Celery background workers drop tasks unexpectedly due to loop thread collisions.",
+    "recommended_fix": "Wrap asyncio loop checks in resilient try-except blocks, falling back to new_event_loop() when needed.",
+    "priority_order": "3",
+    "dependency_impact": "Blocks all downstream background crawler runs and lock sweepers.",
+    "logs_reference": "LOG-REDIS-EVENT-LOOP-ERR-003",
+    "timestamp": "2026-05-20T12:19:16Z"
+  },
+  {
+    "module_name": "Orchestration",
+    "component": "app.services.orchestration_manager",
+    "test_case": "Celery Worker Sudden Force-Kill Recovery",
+    "status": "FAIL",
+    "severity": "HIGH",
+    "error_type": "State Lock Hold Starvation",
+    "root_cause": "Sudden worker process terminations (OS OOM kills) prevent Python try/finally blocks or on_failure signals from running, leaving active Redis mutex keys locked for 30 minutes.",
+    "failure_chain": "Worker terminated by OS -> Redis lock remains active -> Next company crawl request submitted -> Orchestration blocks task because lock is held -> System hangs for 30 minutes.",
+    "reproduction_steps": "1. Start target crawl. 2. Forcefully kill the active worker process using taskkill. 3. Resubmit same company target search query. 4. Verify system blocks target indefinitely.",
+    "expected_behavior": "Mutex locks hold heartbeats that auto-expire shortly after worker heartbeat loss.",
+    "actual_behavior": "Stuck lock keys freeze target company deep research pipelines.",
+    "affected_files": [
+      "backend/app/services/orchestration_manager.py",
+      "backend/app/tasks/research_tasks.py"
+    ],
+    "affected_services": [
+      "Celery Task Worker pool",
+      "Redis Cache Broker"
+    ],
+    "stack_trace": "Process terminated by SIGKILL (Exit code: 137)",
+    "performance_impact": "High: Target company searches block execution queues completely.",
+    "security_impact": "None.",
+    "stability_impact": "High: System runs block indefinitely for specific target company profiles.",
+    "recommended_fix": "Reduce lock TTL to 5 minutes, extending locks dynamically every 60 seconds from running workers.",
+    "priority_order": "4",
+    "dependency_impact": "Locks downstream crawler agents and final synthesis briefs.",
+    "logs_reference": "LOG-ORCH-OOM-LOCK-004",
+    "timestamp": "2026-05-20T12:19:16Z"
+  }
+]

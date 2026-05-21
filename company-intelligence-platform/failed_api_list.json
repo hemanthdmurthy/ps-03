@@ -1,0 +1,6 @@
+[
+  "Axios backend integration (/api/v1/research)",
+  "GET /health",
+  "GET /api/v1/session/{id}",
+  "POST /api/v1/research"
+]

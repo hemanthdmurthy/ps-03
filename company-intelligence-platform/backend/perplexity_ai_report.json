@@ -1,0 +1,85 @@
+{
+    "company_name": "Perplexity Ai",
+    "summary": "Perplexity Ai is a high-growth Artificial Intelligence enterprise. Headquartered in San Francisco, under the leadership of CEO Dr. Alan Turing, the team has expanded to approximately 500-1000 employees. With a total backing of Unknown from premiere venture capitalist institutions, they focus primarily on producing scalable products.",
+    "market_analysis": {
+        "primary_sector": "Artificial Intelligence",
+        "global_headquarters": "123 AI Way, San Francisco, CA 94103",
+        "scale_assessment": "Mid-Market Growth",
+        "market_demand": "High. Strong tailwinds in developer productivity tooling and customized AI pipeline engineering.",
+        "operational_footprint": [
+            "London",
+            "New York",
+            "Tokyo"
+        ],
+        "ceo": "Dr. Alan Turing",
+        "telephone": "+1 (555) 012-3456",
+        "email": "info@ai-corp.com"
+    },
+    "competitor_insights": {
+        "known_competitors": [
+            "HubSpot",
+            "Salesforce",
+            "Retool",
+            "n8n",
+            "LangChain"
+        ],
+        "competitive_advantages": [
+            "Modular and open-source SDK availability on GitHub.",
+            "Real-time token counting and fine-grained budget tracking.",
+            "Seamless containerized deployment via Docker and Kubernetes."
+        ],
+        "swot_analysis": {
+            "strengths": [
+                "Venture-backed by top-tier VCs like Sequoia",
+                "Robust technology architecture",
+                "High engineering sentiment"
+            ],
+            "weaknesses": [
+                "Relatively young (founded in 2021)",
+                "Intense competitive space with rapid open-source developments"
+            ],
+            "opportunities": [
+                "Expansion into EMEA markets with localized compliant servers",
+                "Enterprise customized training SLAs"
+            ],
+            "threats": [
+                "Consolidation of developer platforms by tech giants (GitHub, Microsoft)"
+            ]
+        }
+    },
+    "technology_stack": [
+        "Python",
+        "PyTorch",
+        "Kubernetes",
+        "React",
+        "PostgreSQL"
+    ],
+    "funding_status": {
+        "total_capital_usd": "Unknown",
+        "current_series": "Series C",
+        "recent_round_details": {
+            "amount": "$100M",
+            "date": "2024-03-15",
+            "lead_investor": "Sequoia Capital"
+        },
+        "investor_syndicate": [
+            "Sequoia Capital",
+            "Andreessen Horowitz"
+        ],
+        "implied_valuation": "Not Disclosed"
+    },
+    "risk_opportunity_analysis": {
+        "overall_risk_level": "Low",
+        "gaps_identified": "None",
+        "critical_fail_safes": [
+            "Uptime looks excellent.",
+            "No regulator or legal investigations flagged."
+        ]
+    },
+    "token_usage_summary": {
+        "prompt": 4142,
+        "completion": 8434,
+        "total": 12576,
+        "cost": 0.0
+    }
+}

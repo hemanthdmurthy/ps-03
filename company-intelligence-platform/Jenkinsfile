@@ -1,0 +1,12 @@
+pipeline {
+    agent any
+    stages {
+        stage('Migrate Database') {
+            steps {
+                dir('backend') {
+                    sh 'python -c "from app.utils.db_reconciler import reconcile_database_schema; reconcile_database_schema()"'
+                }
+            }
+        }
+    }
+}

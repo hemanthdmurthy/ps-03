@@ -1,0 +1,61 @@
+groups:
+  - name: company_intel_alerts
+    rules:
+      # 1. API Performance & Availability Alerts
+      - alert: FastAPILatencyHigh
+        expr: histogram_quantile(0.95, sum(rate(http_request_duration_seconds_bucket[5m])) by (le, endpoint)) > 1.5
+        for: 2m
+        labels:
+          severity: warning
+        annotations:
+          summary: "High API Latency on {{ $labels.endpoint }}"
+          description: "The 95th percentile of response latency on endpoint {{ $labels.endpoint }} is above 1.5s (currently {{ $value }}s) for more than 2 minutes."
+
+      - alert: FastAPIErrorRateSpike
+        expr: (sum(rate(http_requests_total{status_code=~"5.."}[5m])) / sum(rate(http_requests_total[5m]))) * 100 > 5
+        for: 1m
+        labels:
+          severity: critical
+        annotations:
+          summary: "FastAPI 5xx Error Rate Spike"
+          description: "HTTP 5xx server errors represent {{ $value }}% of total API traffic over the last 5 minutes."
+
+      # 2. Database (PostgreSQL) Performance Alerts
+      - alert: DatabaseLatencyHigh
+        expr: rate(db_query_duration_seconds_sum[5m]) / rate(db_query_duration_seconds_count[5m]) > 0.2
+        for: 2m
+        labels:
+          severity: warning
+        annotations:
+          summary: "Database Query Latency High"
+          description: "Average database query execution latency is above 200ms (currently {{ $value }}s)."
+
+      # 3. Redis / Caching Alerts
+      - alert: RedisCacheFailuresDetected
+        expr: sum(rate(redis_cache_operations_total{status="failure"}[5m])) > 0
+        for: 1m
+        labels:
+          severity: warning
+        annotations:
+          summary: "Redis Cache Operation Failures"
+          description: "Redis cache operations are throwing exceptions (rate: {{ $value }} ops/sec). The cache may be down."
+
+      # 4. Celery Background Job Alerts
+      - alert: CeleryTaskFailureSpike
+        expr: (sum(rate(celery_tasks_total{status="failure"}[5m])) / sum(rate(celery_tasks_total{status=~"success|failure"}[5m]))) * 100 > 10
+        for: 2m
+        labels:
+          severity: critical
+        annotations:
+          summary: "Celery Task Failure Rate High"
+          description: "Spike in Celery background task failures (currently {{ $value }}% failure rate)."
+
+      # 5. Infrastructure Alerts
+      - alert: HostDiskLow
+        expr: 100 - (node_filesystem_free_bytes / node_filesystem_size_bytes * 100) > 95
+        for: 5m
+        labels:
+          severity: critical
+        annotations:
+          summary: "Instance Out of Disk Space"
+          description: "Host file system has less than 5% free space remaining (currently {{ $value }}% used)."
