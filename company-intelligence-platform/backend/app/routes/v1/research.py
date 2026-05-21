@@ -233,9 +233,17 @@ async def get_session_parameters(session_id: str):
             logger.info(f"[DEBUG LOG] Found specific record for {company_name}")
 
     # If allocated_parameters JSON is empty, attempt to rescue values from agent_outputs
+    session_data = {}
     try:
-        session_data = await db_service.aget_full_session_data(session_id)
-        agent_outputs = session_data.get("agent_outputs") if session_data else None
+        session_data = await db_service.aget_full_session_data(session_id) or {}
+    except Exception as e:
+        logger.warning(f"Could not fetch session data from DB for agent merge: {e}")
+
+    if not session_data and session_id in local_sessions_cache:
+        session_data = local_sessions_cache[session_id]
+
+    try:
+        agent_outputs = session_data.get("agent_outputs") if isinstance(session_data, dict) else None
         if agent_outputs:
             # For each agent, merge raw_json_output keys into first_row when missing
             for agent_name, out in agent_outputs.items():
