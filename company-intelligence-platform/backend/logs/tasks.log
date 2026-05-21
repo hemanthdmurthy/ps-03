@@ -1586,3 +1586,92 @@ backend. The Celery application must be restarted.
 2026-05-21 07:17:25.858 | INFO     | logging:callHandlers:1706 [TASKS] - [Redis Shutdown] Gracefully tearing down Redis connection pools...
 2026-05-21 07:17:25.858 | INFO     | logging:callHandlers:1706 [TASKS] - [Redis Shutdown] Async connection pool disposed.
 2026-05-21 07:17:25.858 | INFO     | logging:callHandlers:1706 [TASKS] - [Redis Shutdown] Sync connection pool disposed.
+2026-05-21 07:17:34.163 | INFO     | logging:callHandlers:1706 [TASKS] - [Redis Startup] Target Connection: redis://localhost:6379/0 (Host: localhost, Port: 6379)
+2026-05-21 07:17:34.163 | INFO     | logging:callHandlers:1706 [TASKS] - [Redis Connect] Attempt 1/6 to ping Redis at localhost:6379...
+2026-05-21 07:17:40.203 | WARNING  | logging:callHandlers:1706 [TASKS] - [-] [Redis Timeout] Connection timed out: check network routes. Error: Timeout connecting to server
+2026-05-21 07:17:40.204 | INFO     | logging:callHandlers:1706 [TASKS] - [Redis Retry] Waiting 0.86s before next connection attempt...
+2026-05-21 07:17:41.065 | INFO     | logging:callHandlers:1706 [TASKS] - [Redis Connect] Attempt 2/6 to ping Redis at localhost:6379...
+2026-05-21 07:17:47.095 | WARNING  | logging:callHandlers:1706 [TASKS] - [-] [Redis Timeout] Connection timed out: check network routes. Error: Timeout connecting to server
+2026-05-21 07:17:47.095 | INFO     | logging:callHandlers:1706 [TASKS] - [Redis Retry] Waiting 1.44s before next connection attempt...
+2026-05-21 07:17:48.540 | INFO     | logging:callHandlers:1706 [TASKS] - [Redis Connect] Attempt 3/6 to ping Redis at localhost:6379...
+2026-05-21 07:17:54.554 | WARNING  | logging:callHandlers:1706 [TASKS] - [-] [Redis Timeout] Connection timed out: check network routes. Error: Timeout connecting to server
+2026-05-21 07:17:54.556 | INFO     | logging:callHandlers:1706 [TASKS] - [Redis Retry] Waiting 3.08s before next connection attempt...
+2026-05-21 07:17:57.649 | INFO     | logging:callHandlers:1706 [TASKS] - [Redis Connect] Attempt 4/6 to ping Redis at localhost:6379...
+2026-05-21 07:18:03.680 | WARNING  | logging:callHandlers:1706 [TASKS] - [-] [Redis Timeout] Connection timed out: check network routes. Error: Timeout connecting to server
+2026-05-21 07:18:03.680 | INFO     | logging:callHandlers:1706 [TASKS] - [Redis Retry] Waiting 5.48s before next connection attempt...
+2026-05-21 07:18:09.168 | INFO     | logging:callHandlers:1706 [TASKS] - [Redis Connect] Attempt 5/6 to ping Redis at localhost:6379...
+2026-05-21 07:18:15.194 | WARNING  | logging:callHandlers:1706 [TASKS] - [-] [Redis Timeout] Connection timed out: check network routes. Error: Timeout connecting to server
+2026-05-21 07:18:15.195 | INFO     | logging:callHandlers:1706 [TASKS] - [Redis Retry] Waiting 15.03s before next connection attempt...
+2026-05-21 07:18:30.227 | INFO     | logging:callHandlers:1706 [TASKS] - [Redis Connect] Attempt 6/6 to ping Redis at localhost:6379...
+2026-05-21 07:18:36.256 | WARNING  | logging:callHandlers:1706 [TASKS] - [-] [Redis Timeout] Connection timed out: check network routes. Error: Timeout connecting to server
+2026-05-21 07:18:36.259 | WARNING  | logging:callHandlers:1706 [TASKS] - [-] [Redis Outage] Max startup connection attempts exceeded. Current environment: development
+2026-05-21 07:18:36.329 | INFO     | logging:callHandlers:1706 [TASKS] - [+] [Redis Fallback] In-memory FakeRedis successfully active for both sync/async operations (shared server — pub/sub bridged).
+2026-05-21 07:18:36.329 | INFO     | logging:callHandlers:1706 [TASKS] - 🧹 [Redis Cleanup] Starting orchestration lock validation and auto-healing...
+2026-05-21 07:18:36.329 | INFO     | logging:callHandlers:1706 [TASKS] - ✨ [Redis Cleanup Completed] Scanned: 0, Cleared Malformed: 0, Cleared Orphaned: 0, Cleared Stale: 0
+2026-05-21 07:18:36.338 | INFO     | logging:callHandlers:1706 [TASKS] - [Redis Startup] Target Connection: redis://localhost:6379/0 (Host: localhost, Port: 6379)
+2026-05-21 07:18:36.339 | INFO     | logging:callHandlers:1706 [TASKS] - [Redis Connect] Attempt 1/6 to ping Redis at localhost:6379...
+2026-05-21 07:18:42.367 | WARNING  | logging:callHandlers:1706 [TASKS] - [-] [Redis Timeout] Connection timed out: check network routes. Error: Timeout connecting to server
+2026-05-21 07:18:42.367 | INFO     | logging:callHandlers:1706 [TASKS] - [Redis Retry] Waiting 0.53s before next connection attempt...
+2026-05-21 07:18:42.899 | INFO     | logging:callHandlers:1706 [TASKS] - [Redis Connect] Attempt 2/6 to ping Redis at localhost:6379...
+2026-05-21 07:18:48.926 | WARNING  | logging:callHandlers:1706 [TASKS] - [-] [Redis Timeout] Connection timed out: check network routes. Error: Timeout connecting to server
+2026-05-21 07:18:48.931 | INFO     | logging:callHandlers:1706 [TASKS] - [Redis Retry] Waiting 1.1s before next connection attempt...
+2026-05-21 07:18:50.040 | INFO     | logging:callHandlers:1706 [TASKS] - [Redis Connect] Attempt 3/6 to ping Redis at localhost:6379...
+2026-05-21 07:18:56.064 | WARNING  | logging:callHandlers:1706 [TASKS] - [-] [Redis Timeout] Connection timed out: check network routes. Error: Timeout connecting to server
+2026-05-21 07:18:56.065 | INFO     | logging:callHandlers:1706 [TASKS] - [Redis Retry] Waiting 3.33s before next connection attempt...
+2026-05-21 07:18:59.395 | INFO     | logging:callHandlers:1706 [TASKS] - [Redis Connect] Attempt 4/6 to ping Redis at localhost:6379...
+2026-05-21 07:19:05.421 | WARNING  | logging:callHandlers:1706 [TASKS] - [-] [Redis Timeout] Connection timed out: check network routes. Error: Timeout connecting to server
+2026-05-21 07:19:05.422 | INFO     | logging:callHandlers:1706 [TASKS] - [Redis Retry] Waiting 6.1s before next connection attempt...
+2026-05-21 07:19:11.532 | INFO     | logging:callHandlers:1706 [TASKS] - [Redis Connect] Attempt 5/6 to ping Redis at localhost:6379...
+2026-05-21 07:19:17.561 | WARNING  | logging:callHandlers:1706 [TASKS] - [-] [Redis Timeout] Connection timed out: check network routes. Error: Timeout connecting to server
+2026-05-21 07:19:17.561 | INFO     | logging:callHandlers:1706 [TASKS] - [Redis Retry] Waiting 9.76s before next connection attempt...
+2026-05-21 07:19:27.330 | INFO     | logging:callHandlers:1706 [TASKS] - [Redis Connect] Attempt 6/6 to ping Redis at localhost:6379...
+2026-05-21 07:19:33.347 | WARNING  | logging:callHandlers:1706 [TASKS] - [-] [Redis Timeout] Connection timed out: check network routes. Error: Timeout connecting to server
+2026-05-21 07:19:33.348 | WARNING  | logging:callHandlers:1706 [TASKS] - [-] [Redis Outage] Max startup connection attempts exceeded. Current environment: development
+2026-05-21 07:19:33.350 | INFO     | logging:callHandlers:1706 [TASKS] - [+] [Redis Fallback] In-memory FakeRedis successfully active for both sync/async operations (shared server — pub/sub bridged).
+2026-05-21 07:19:33.353 | INFO     | logging:callHandlers:1706 [TASKS] - [Redis PubSub] Initialized successfully. Instance: instance_1304471812944_1779328053, Redis: redis://localhost:6379/0
+2026-05-21 07:19:33.354 | INFO     | logging:callHandlers:1706 [TASKS] - [Redis PubSub] Subscribed to channel: 'company_intel:notifications'
+2026-05-21 07:19:33.356 | INFO     | logging:callHandlers:1706 [TASKS] - [Redis PubSub] Subscribed to channel: 'company_intel:dashboard_updates'
+2026-05-21 07:19:33.357 | INFO     | logging:callHandlers:1706 [TASKS] - [Redis PubSub] Subscribed to channel: 'company_intel:activity_stream'
+2026-05-21 07:19:33.360 | INFO     | logging:callHandlers:1706 [TASKS] - [Redis PubSub] Subscribed to channel: 'company_intel:analytics_live'
+2026-05-21 07:19:33.364 | INFO     | logging:callHandlers:1706 [TASKS] - [Redis PubSub] Subscribed to channel: 'company_intel:system_broadcast'
+2026-05-21 07:19:33.368 | INFO     | logging:callHandlers:1706 [TASKS] - [Redis PubSub] Background listener task started.
+2026-05-21 07:19:39.870 | INFO     | logging:callHandlers:1706 [TASKS] - 🔑 [Redis Lock] Lock acquired for 'orchestration:apple:lock' (ID: 91fbb994-4325-4ecd-be14-77e4f93d25c8, TTL: 1800s)
+2026-05-21 07:19:40.198 | INFO     | logging:callHandlers:1706 [TASKS] - Starting LangGraph workflow in background for session: 91fbb994-4325-4ecd-be14-77e4f93d25c8
+2026-05-21 07:19:41.220 | INFO     | logging:callHandlers:1706 [TASKS] - [Graph Stream Update] Completed Node: 'input'
+2026-05-21 07:19:41.220 | INFO     | logging:callHandlers:1706 [TASKS] - [SSE Publish Local] Pushing event 'input_normalized' to session 91fbb994-4325-4ecd-be14-77e4f93d25c8
+2026-05-21 07:19:41.220 | INFO     | logging:callHandlers:1706 [TASKS] - [SSE Publish Redis] Published event 'input_normalized' to channel company_intel:sse:91fbb994-4325-4ecd-be14-77e4f93d25c8
+2026-05-21 07:19:48.708 | INFO     | logging:callHandlers:1706 [TASKS] - [SSE Publish Local] Pushing event 'agent_status_updated' to session 91fbb994-4325-4ecd-be14-77e4f93d25c8
+2026-05-21 07:19:48.708 | INFO     | logging:callHandlers:1706 [TASKS] - [SSE Publish Redis] Published event 'agent_status_updated' to channel company_intel:sse:91fbb994-4325-4ecd-be14-77e4f93d25c8
+2026-05-21 07:20:48.527 | INFO     | logging:callHandlers:1706 [TASKS] - [SSE Publish Local] Pushing event 'agent_status_updated' to session 91fbb994-4325-4ecd-be14-77e4f93d25c8
+2026-05-21 07:20:48.528 | INFO     | logging:callHandlers:1706 [TASKS] - [SSE Publish Redis] Published event 'agent_status_updated' to channel company_intel:sse:91fbb994-4325-4ecd-be14-77e4f93d25c8
+2026-05-21 07:20:48.552 | INFO     | logging:callHandlers:1706 [TASKS] - [SSE Publish Local] Pushing event 'agent_status_updated' to session 91fbb994-4325-4ecd-be14-77e4f93d25c8
+2026-05-21 07:20:48.553 | INFO     | logging:callHandlers:1706 [TASKS] - [SSE Publish Redis] Published event 'agent_status_updated' to channel company_intel:sse:91fbb994-4325-4ecd-be14-77e4f93d25c8
+2026-05-21 07:20:48.983 | INFO     | logging:callHandlers:1706 [TASKS] - [SSE Publish Local] Pushing event 'agent_status_updated' to session 91fbb994-4325-4ecd-be14-77e4f93d25c8
+2026-05-21 07:20:48.983 | INFO     | logging:callHandlers:1706 [TASKS] - [SSE Publish Redis] Published event 'agent_status_updated' to channel company_intel:sse:91fbb994-4325-4ecd-be14-77e4f93d25c8
+2026-05-21 07:20:49.283 | INFO     | logging:callHandlers:1706 [TASKS] - [SSE Publish Local] Pushing event 'agent_status_updated' to session 91fbb994-4325-4ecd-be14-77e4f93d25c8
+2026-05-21 07:20:49.284 | INFO     | logging:callHandlers:1706 [TASKS] - [SSE Publish Redis] Published event 'agent_status_updated' to channel company_intel:sse:91fbb994-4325-4ecd-be14-77e4f93d25c8
+2026-05-21 07:20:49.878 | INFO     | logging:callHandlers:1706 [TASKS] - [SSE Publish Local] Pushing event 'agent_status_updated' to session 91fbb994-4325-4ecd-be14-77e4f93d25c8
+2026-05-21 07:20:49.879 | INFO     | logging:callHandlers:1706 [TASKS] - [SSE Publish Redis] Published event 'agent_status_updated' to channel company_intel:sse:91fbb994-4325-4ecd-be14-77e4f93d25c8
+2026-05-21 07:20:54.371 | INFO     | logging:callHandlers:1706 [TASKS] - [SSE Publish Local] Pushing event 'agent_status_updated' to session 91fbb994-4325-4ecd-be14-77e4f93d25c8
+2026-05-21 07:20:54.373 | INFO     | logging:callHandlers:1706 [TASKS] - [SSE Publish Redis] Published event 'agent_status_updated' to channel company_intel:sse:91fbb994-4325-4ecd-be14-77e4f93d25c8
+2026-05-21 07:20:54.383 | INFO     | logging:callHandlers:1706 [TASKS] - [Graph Stream Update] Completed Node: 'research_agents'
+2026-05-21 07:20:54.385 | INFO     | logging:callHandlers:1706 [TASKS] - [SSE Publish Local] Pushing event 'research_completed' to session 91fbb994-4325-4ecd-be14-77e4f93d25c8
+2026-05-21 07:20:54.386 | INFO     | logging:callHandlers:1706 [TASKS] - [SSE Publish Redis] Published event 'research_completed' to channel company_intel:sse:91fbb994-4325-4ecd-be14-77e4f93d25c8
+2026-05-21 07:20:54.398 | INFO     | logging:callHandlers:1706 [TASKS] - [Graph Stream Update] Completed Node: 'consolidation'
+2026-05-21 07:20:54.401 | INFO     | logging:callHandlers:1706 [TASKS] - [SSE Publish Local] Pushing event 'consolidation_completed' to session 91fbb994-4325-4ecd-be14-77e4f93d25c8
+2026-05-21 07:20:54.402 | INFO     | logging:callHandlers:1706 [TASKS] - [SSE Publish Redis] Published event 'consolidation_completed' to channel company_intel:sse:91fbb994-4325-4ecd-be14-77e4f93d25c8
+2026-05-21 07:20:54.422 | INFO     | logging:callHandlers:1706 [TASKS] - [Graph Stream Update] Completed Node: 'validation'
+2026-05-21 07:20:54.424 | INFO     | logging:callHandlers:1706 [TASKS] - [SSE Publish Local] Pushing event 'validation_completed' to session 91fbb994-4325-4ecd-be14-77e4f93d25c8
+2026-05-21 07:20:54.425 | INFO     | logging:callHandlers:1706 [TASKS] - [SSE Publish Redis] Published event 'validation_completed' to channel company_intel:sse:91fbb994-4325-4ecd-be14-77e4f93d25c8
+2026-05-21 07:21:45.062 | INFO     | logging:callHandlers:1706 [TASKS] - [Graph Stream Update] Completed Node: 'final_output'
+2026-05-21 07:21:45.064 | INFO     | logging:callHandlers:1706 [TASKS] - [SSE Publish Local] Pushing event 'report_compiled' to session 91fbb994-4325-4ecd-be14-77e4f93d25c8
+2026-05-21 07:21:45.065 | INFO     | logging:callHandlers:1706 [TASKS] - [SSE Publish Redis] Published event 'report_compiled' to channel company_intel:sse:91fbb994-4325-4ecd-be14-77e4f93d25c8
+2026-05-21 07:21:45.104 | INFO     | logging:callHandlers:1706 [TASKS] - [Graph Stream Update] Completed Node: 'supabase_storage'
+2026-05-21 07:21:45.106 | INFO     | logging:callHandlers:1706 [TASKS] - [SSE Publish Local] Pushing event 'storage_completed' to session 91fbb994-4325-4ecd-be14-77e4f93d25c8
+2026-05-21 07:21:45.106 | INFO     | logging:callHandlers:1706 [TASKS] - [SSE Publish Redis] Published event 'storage_completed' to channel company_intel:sse:91fbb994-4325-4ecd-be14-77e4f93d25c8
+2026-05-21 07:21:45.123 | INFO     | logging:callHandlers:1706 [TASKS] - [Graph Stream Update] Completed Node: 'local_export'
+2026-05-21 07:21:45.138 | WARNING  | logging:callHandlers:1706 [TASKS] - ⚠️ [Circuit Breaker] Redis operation failure recorded (1/5).
+2026-05-21 07:21:45.138 | ERROR    | logging:callHandlers:1706 [TASKS] - ❌ [Redis Operation Failure] Operation failed: unknown command 'eval', with args beginning with: 
+2026-05-21 07:21:45.140 | WARNING  | logging:callHandlers:1706 [TASKS] - ⚠️ [Redis Lock] EVAL unsupported for 'orchestration:apple:lock': unknown command 'eval', with args beginning with: . Falling back to direct delete.
+2026-05-21 07:21:45.141 | WARNING  | logging:callHandlers:1706 [TASKS] - 🔓 [Redis Lock] Direct delete fallback succeeded for 'orchestration:apple:lock' (ID: 91fbb994-4325-4ecd-be14-77e4f93d25c8)
+2026-05-21 07:21:45.150 | INFO     | logging:callHandlers:1706 [TASKS] - [SSE Publish Redis] Published event 'workflow_ended' to channel company_intel:sse:91fbb994-4325-4ecd-be14-77e4f93d25c8
