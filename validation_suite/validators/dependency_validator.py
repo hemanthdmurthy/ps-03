@@ -407,21 +407,43 @@ def validate_category_nature_consistency(category: str, nature: str) -> Tuple[bo
     return True, "Valid"
 
 
-def validate_office_consistency(num_offices: int, locations: List[str], operating_countries: List[str]) -> Tuple[bool, str]:
+def validate_office_consistency(num_offices: Any, locations: List[str], operating_countries: List[str]) -> Tuple[bool, str]:
     """
     TC-3.4-009, 010, 011: Validate office counts and locations.
+    Safely handles string/integer conversion and provides robust protection against malformed data.
     """
-    if num_offices > len(locations):
-        return False, f"Office count ({num_offices}) exceeds location entries ({len(locations)})"
+    # Defensive parsing for num_offices
+    try:
+        if num_offices is None:
+            offices_int = 0
+        else:
+            # Handle cases like "5", 5, " 5 ", or even None/NaN gracefully
+            offices_int = int(str(num_offices).strip())
+    except (ValueError, TypeError):
+        return False, f"Invalid office_count value: {num_offices}. Must be a valid integer."
+
+    # Robustness checks for list inputs
+    if not isinstance(locations, list):
+        locations = []
     
-    if num_offices == 0 and len(locations) > 0:
-        return False, "Cannot have 0 offices with location entries"
+    if not isinstance(operating_countries, list):
+        operating_countries = []
+
+    # TC-3.4-009: Office count vs listed locations
+    if offices_int > len(locations):
+        return False, f"Office count ({offices_int}) exceeds listed location entries ({len(locations)})"
     
+    # TC-3.4-010: Zero office consistency
+    if offices_int == 0 and len(locations) > 0:
+        return False, "Logical Inconsistency: Cannot have 0 offices with listed location entries"
+    
+    # TC-3.4-011: Operating countries consistency
     for loc in locations:
-        if "," in loc:
+        if isinstance(loc, str) and "," in loc:
             country = loc.split(",")[-1].strip()
             if country and country not in operating_countries:
-                return False, f"Office country {country} not in operating countries"
+                # We only fail if the country is explicitly provided and not in the list
+                return False, f"Consistency Error: Office country '{country}' not found in operating countries list"
     
     return True, "Valid"
 
@@ -439,11 +461,50 @@ def validate_gtm_motion_consistency(gtm_text: str, motion: str) -> Tuple[bool, s
 
 def validate_logo_consistency(company_name: str, logo_url: str) -> Tuple[bool, str]:
     """
-    TC-3.4-004: Detect logo domain mismatch.
+    TC-3.4-004: Validate logo consistency, format, and placeholder prevention.
     """
-    if "zomato" in company_name.lower() and "swiggy.com" in logo_url.lower():
-        return False, "Logo URL pointing to competitor domain (Swiggy vs Zomato)"
+    if not logo_url:
+        return False, "Logo URL is missing"
+
+    logo_url_str = str(logo_url).strip()
+    if not logo_url_str:
+        return False, "Logo URL is empty"
+
+    # HTTPS check
+    if not logo_url_str.lower().startswith("https://"):
+        return False, f"Logo URL must use HTTPS for security: {logo_url}"
+
+    # Placeholder prevention
+    placeholders = [
+        "example.com", "placeholder.com", "logo.png", "null", "none", 
+        "image_not_found", "broken_link", "test.com"
+    ]
+    if any(p in logo_url_str.lower() for p in placeholders):
+        return False, f"Logo URL appears to be a placeholder or invalid link: {logo_url}"
+
+    # Competitor domain consistency check
+    if company_name:
+        competitors = {
+            "zomato": ["swiggy.com"],
+            "swiggy": ["zomato.com"],
+            "ola": ["uber.com"],
+            "uber": ["ola.com"],
+            "freshworks": ["zoho.com"],
+            "zoho": ["freshworks.com"],
+            "zepto": ["blinkit.com"],
+            "blinkit": ["zepto.com"]
+        }
+        
+        company_lower = company_name.lower()
+        logo_lower = logo_url_str.lower()
+        
+        for brand, forbidden_domains in competitors.items():
+            if brand in company_lower:
+                if any(fd in logo_lower for fd in forbidden_domains):
+                    return False, f"Critical Inconsistency: {company_name} logo URL points to competitor domain ({forbidden_domains[0]})"
+
     return True, "Valid"
+
 
 
 def validate_website_consistency(url: str, quality_text: str = "", rating: float = 0, traffic_rank: int = None) -> Tuple[bool, str]:

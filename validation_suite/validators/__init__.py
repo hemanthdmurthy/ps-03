@@ -65,7 +65,18 @@ from .dependency_validator import (
     validate_hiring_consistency,
     validate_source_traceability,
     validate_entity_existence,
-    validate_name_consistency
+    validate_name_consistency,
+    validate_category_nature_consistency,
+    validate_office_consistency,
+    validate_gtm_motion_consistency,
+    validate_logo_consistency,
+    validate_website_consistency,
+    validate_inheritance_logic,
+    validate_semantic_consistency,
+    validate_leadership,
+    validate_entity_signals,
+    validate_future_event,
+    validate_applicability
 )
 
 __all__ = [
@@ -123,4 +134,14 @@ __all__ = [
     "validate_source_traceability",
     "validate_entity_existence",
     "validate_name_consistency",
+    "validate_category_nature_consistency",
+    "validate_office_consistency",
+    "validate_gtm_motion_consistency",
+    "validate_logo_consistency",
+    "validate_website_consistency",
+    "validate_inheritance_logic",
+    "validate_semantic_consistency",
+    "validate_leadership",
+    "validate_entity_signals",
+    "validate_applicability",
 ]

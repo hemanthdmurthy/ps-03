@@ -49,7 +49,7 @@ def fetch_all_companies() -> List[Dict[str, Any]]:
         try:
             response = (
                 client
-                .table("companies")
+                .table("staging_company")
                 .select(SELECT_COLUMNS)
                 .range(offset, offset + PAGE_SIZE - 1)
                 .execute()
@@ -92,7 +92,7 @@ def fetch_company_by_name(name: str) -> Optional[Dict[str, Any]]:
     try:
         response = (
             client
-            .table("companies")
+            .table("staging_company")
             .select(SELECT_COLUMNS)
             .eq("name", name)
             .limit(1)
@@ -125,7 +125,7 @@ def fetch_companies_by_ids(ids: List[int]) -> List[Dict[str, Any]]:
     try:
         response = (
             client
-            .table("companies")
+            .table("staging_company")
             .select(SELECT_COLUMNS)
             .in_("company_id", ids)
             .execute()

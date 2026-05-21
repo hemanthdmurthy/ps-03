@@ -34,6 +34,8 @@ from typing import Dict, Any, List, Optional
 # Import the data-fetching layer
 # ---------------------------------------------------------------------------
 from fetchData import fetch_all_companies
+from normalization import normalize_record
+
 
 # ---------------------------------------------------------------------------
 # Import existing validators (UNCHANGED — used as-is)
@@ -102,7 +104,7 @@ def transform_company(row: Dict[str, Any]) -> Dict[str, Any]:
         primary_contact_email → contact_person_email
         ...
     """
-    return {
+    raw_record = {
         # ── Identity ──────────────────────────────────────────
         "company_name":           _safe(row.get("name"), ""),
         "short_name":             _safe(row.get("short_name"), _safe(row.get("name"), "")),
@@ -140,9 +142,13 @@ def transform_company(row: Dict[str, Any]) -> Dict[str, Any]:
         "legal_issues":           _safe(row.get("legal_issues"), ""),
         "carbon_footprint":       _safe(row.get("carbon_footprint"), ""),
 
+        # -- GTM / Sales (New Fields for TC-3.4-051) -----------
+        "gtm_motion":             _safe(row.get("gtm_motion"), ""),
+
         # ── Raw row (for null-density and full-record checks) ─
         "_raw": row,
     }
+    return normalize_record(raw_record)
 
 
 def transform_all(raw_rows: List[Dict[str, Any]]) -> List[Dict[str, Any]]:

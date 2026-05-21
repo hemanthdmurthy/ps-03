@@ -12,6 +12,7 @@ Usage:
 import os
 import sys
 from dotenv import load_dotenv
+from supabase import create_client, Client
 
 # ---------------------------------------------------------------------------
 # Load environment variables from .env file in the same directory
@@ -39,18 +40,16 @@ if not SUPABASE_ANON_KEY:
 # ---------------------------------------------------------------------------
 _client = None
 
-
-def get_supabase_client():
+def get_supabase_client() -> Client:
     """
-    Returns a singleton Supabase client instance.
+    Returns a singleton Supabase client instance using the official supabase-py SDK.
     Lazily initialised on first call to avoid import-time side effects.
     """
     global _client
     if _client is None:
         try:
-            from supabase import create_client
             _client = create_client(SUPABASE_URL, SUPABASE_ANON_KEY)
-            print(f"[SupabaseClient] Connected to {SUPABASE_URL}")
+            print(f"[SupabaseClient] Connected to {SUPABASE_URL} (using official supabase-py SDK)")
         except Exception as exc:
             print(f"[SupabaseClient] ERROR — Failed to create client: {exc}")
             raise
@@ -64,7 +63,7 @@ def health_check() -> bool:
     """
     try:
         client = get_supabase_client()
-        response = client.table("companies").select("company_id").limit(1).execute()
+        response = client.table("staging_company").select("company_id").limit(1).execute()
         if response.data is not None:
             print("[SupabaseClient] Health check PASSED ✓")
             return True
@@ -82,3 +81,4 @@ if __name__ == "__main__":
     print("Running Supabase client self-test...")
     ok = health_check()
     sys.exit(0 if ok else 1)
+

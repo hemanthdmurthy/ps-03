@@ -116,7 +116,7 @@ def valid_profitability_statuses() -> List[str]:
 # Pytest configuration hook
 def pytest_configure(config):
     """
-    Register custom markers.
+    Register custom markers and initialize result storage.
     """
     config.addinivalue_line(
         "markers", "valid: Tests for valid/positive inputs"
@@ -136,3 +136,8 @@ def pytest_configure(config):
     config.addinivalue_line(
         "markers", "datasource: Tests for data source validation"
     )
+    
+    # Initialize attributes for the automated reporter
+    config.validation_results = []
+    config.total_records = 0
+    config.total_test_cases = 0
